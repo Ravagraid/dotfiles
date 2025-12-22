@@ -1,0 +1,8 @@
+2025-12-21T01:28:29 exception: Failed to open "/home/levariel/.mpd/state": No such file or directory
+2025-12-21T01:28:29 exception: Failed to access /home/levariel/music: No such file or directory
+2025-12-21T01:31:53 exception: Failed to open "/home/levariel/.mpd/state": No such file or directory
+2025-12-21T01:33:31 exception: Failed to open "/home/levariel/.mpd/state": No such file or directory
+2025-12-21T01:33:53 exception: Failed to open "/home/levariel/.mpd/state": No such file or directory
+2025-12-21T01:37:14 exception: Failed to commit /home/levariel/.mpd/state: File exists
+2025-12-21T01:44:00 mixer: Failed to read mixer for "default detected output": no such mixer control: PCM
+2025-12-21T02:13:42 mixer: Failed to read mixer for "default detected output": no such mixer control: PCM

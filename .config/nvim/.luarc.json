@@ -1,0 +1,9 @@
+{
+    "diagnostics.disable": [
+        "unknown-diag-code"
+    ],
+    "diagnostics.globals": [
+        "vim",
+        "_lazygit_toggle"
+    ]
+}
