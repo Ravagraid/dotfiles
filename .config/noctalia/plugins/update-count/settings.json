@@ -2,5 +2,10 @@
   "updateInterval": 300000,
   "configuredTerminal": "kitty",
   "configuredIcon": "world-download",
-  "hideOnZero": true
+  "hideOnZero": false,
+  "updateIntervalMinutes": 30,
+  "updateTerminalCommand": "foot -e",
+  "currentIconName": "world-download",
+  "customCmdGetNumUpdates": "",
+  "customCmdDoSystemUpdate": ""
 }
