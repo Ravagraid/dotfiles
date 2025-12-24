@@ -1,90 +1,22 @@
 return {
 	{
-		"mason-org/mason.nvim",
-		priority = 1000,
+		"mason-org/mason-lspconfig.nvim",
+		lazy = false,
 		dependencies = {
-			"mason-org/mason-lspconfig.nvim",
-			"WhoIsSethDaniel/mason-tool-installer.nvim",
+			{
+				"mason-org/mason.nvim",
+				opts = {
+					ui = {
+						icons = {
+							package_installed = "✓",
+							package_pending = "➜",
+							package_uninstalled = "✗",
+						},
+					},
+				},
+			},
 		},
-		config = function()
-			require("mason").setup({
-				PATH = "prepend",
-				ui = {
-					icons = {
-						package_installed = "✓",
-						package_pending = "➜",
-						package_uninstalled = "✗",
-					},
-				},
-			})
-			require("mason-lspconfig").setup({})
-			require("mason-tool-installer").setup({
-				ensure_installed = {
-					"fixjson",
-					"json-lsp",
-					"lua-language-server",
-					"prettier",
-					"stylua",
-					"vim-language-server",
-					"yaml-language-server",
-					"yamllint",
-				},
-			})
-		end,
-	},
-	{
-		"neovim/nvim-lspconfig",
-		dependencies = { "saghen/blink.cmp" },
-		config = function()
-			-- c, c++, cmake
-			vim.lsp.enable("clangd")
-			vim.lsp.enable("cmake")
-
-			-- lua
-			vim.lsp.config("lua_ls", {
-				settings = {
-					Lua = {
-						diagnostics = {
-							globals = { "vim" },
-						},
-					},
-					completion = {
-						callSnippet = "Replace",
-					},
-				},
-			})
-
-			-- markdown
-			vim.lsp.enable("marksman")
-
-			--yaml
-			vim.lsp.config("yamlls", {
-				settings = {
-					yaml = {
-						schemaStore = {
-							enable = false,
-							url = "",
-						},
-						schemas = require("schemastore").yaml.schemas(),
-					},
-				},
-			})
-
-			--webdev
-			vim.lsp.enable("html")
-			vim.lsp.enable("cssls")
-			vim.lsp.config("jsonls", {
-				settings = {
-					json = {
-						format = {
-							enable = true,
-						},
-						schemas = require("schemastore").json.schemas(),
-						validate = { enable = true },
-					},
-				},
-			})
-		end,
+		opts = {},
 	},
 	{
 		"nvimdev/lspsaga.nvim",
