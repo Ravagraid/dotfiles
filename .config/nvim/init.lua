@@ -1,5 +1,5 @@
 require('config.globals')
 require('config.options')
-require('config.maps')
+require('config.keymaps')
 require('config.lazy')
 require('config.lsp')
