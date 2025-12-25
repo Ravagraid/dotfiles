@@ -18,6 +18,9 @@ return {
 					zsh = { "beautysh" },
 					bash = { "beautysh" },
 					sh = { "beautysh" },
+
+					-- typesetting
+					typst = { "prettypst" },
 				},
 				format_on_save = {
 					timeout_ms = 500,
