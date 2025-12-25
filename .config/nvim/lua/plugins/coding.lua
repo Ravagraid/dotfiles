@@ -2,7 +2,13 @@ return {
 	--Toggler
 	{
 		"rmagatti/alternate-toggler",
-		keys = { { "<leader>i", "<cmd>ToggleAlternate<cr>", desc = "Toggle alternate variable" } },
+		keys = {
+			{
+				"<leader>i",
+				"<cmd>ToggleAlternate<cr>",
+			},
+		},
+		opts = { alternates = { ["=="] = "!=" } },
 	},
 	{ "gbprod/yanky.nvim", opts = {} },
 	{
@@ -10,8 +16,7 @@ return {
 		dependencies = { "rafamadriz/friendly-snippets" },
 		version = "1.*",
 		opts = {
-			keymap = { preset = "enter" },
-			appearance = { nerd_font_variant = "mono" },
+			keymap = { preset = "default" },
 			completion = { documentation = { auto_show = true } },
 			sources = {
 				default = { "lsp", "path", "snippets", "buffer" },
@@ -41,38 +46,27 @@ return {
 				desc = "Previous todo comment",
 			},
 			{ "<leader>xt", "<cmd>TodoTrouble<cr>", desc = "Todo (Trouble)" },
-			{ "<leader>xT", "<cmd>TodoTrouble keywords=TODO,FIX,FIXME<cr>", desc = "Todo/Fix/Fixme (Trouble)" },
+			{
+				"<leader>xT",
+				"<cmd>TodoTrouble keywords=TODO,FIX,FIXME<cr>",
+				desc = "Todo/Fix/Fixme (Trouble)",
+			},
 			{ "<leader>st", "<cmd>TodoTelescope<cr>", desc = "Todo" },
-			{ "<leader>sT", "<cmd>TodoTelescope keywords=TODO,FIX,FIXME<cr>", desc = "Todo/Fix/Fixme" },
+			{
+				"<leader>sT",
+				"<cmd>TodoTelescope keywords=TODO,FIX,FIXME<cr>",
+				desc = "Todo/Fix/Fixme",
+			},
 		},
 	},
 	{
 		"abecodes/tabout.nvim",
 		dependencies = { "nvim-treesitter/nvim-treesitter", "hrsh7th/nvim-cmp" },
-		config = function()
-			require("tabout").setup({
-				tabkey = "<Tab>",
-				backwards_tabkey = "<S-Tab>",
-				act_as_tab = true,
-				act_as_shift_tab = false,
-				default_tab = "<C-t>",
-				default_shift_tab = "<C-d>",
-				enable_backwards = true,
-				completion = true,
-				tabouts = {
-					{ open = "'", close = "'" },
-					{ open = '"', close = '"' },
-					{ open = "`", close = "`" },
-					{ open = "(", close = ")" },
-					{ open = "[", close = "]" },
-					{ open = "{", close = "}" },
-
-					{ open = "*", close = "*" },
-					{ open = "|", close = "|" },
-				},
-				ignore_beginning = true,
-				exclude = {},
-			})
-		end,
+		opts = {
+			tabouts = {
+				{ open = "*", close = "*" },
+				{ open = "|", close = "|" },
+			},
+		},
 	},
 }

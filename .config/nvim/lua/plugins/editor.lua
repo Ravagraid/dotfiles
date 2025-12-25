@@ -130,7 +130,6 @@ return {
 	},
 	{
 		"lewis6991/gitsigns.nvim",
-		lazy = false,
 		opts = {
 			signs = {
 				add = { text = "▎" },
@@ -182,8 +181,6 @@ return {
 	},
 
 	{ "mg979/vim-visual-multi" },
-
-	{ "LhKipp/nvim-nu" },
 
 	{
 		"stevearc/oil.nvim",
