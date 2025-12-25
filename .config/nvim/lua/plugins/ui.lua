@@ -1,47 +1,47 @@
-local function wordcount() return tostring(vim.fn.wordcount().words) .. "words" end
+local function wordcount() return tostring(vim.fn.wordcount().words) .. 'words' end
 local function readingtime()
-	return tostring(math.ceil(vim.fn.wordcount().words / 200.0)) .. " min"
+	return tostring(math.ceil(vim.fn.wordcount().words / 200.0)) .. ' min'
 end
 local function is_markdown()
-	return vim.bo.filetype == "markdown" or vim.bo.filetype == "asciidoc"
+	return vim.bo.filetype == 'markdown' or vim.bo.filetype == 'asciidoc'
 end
 
 return {
 	--Statusline
 	{
-		"nvim-lualine/lualine.nvim",
+		'nvim-lualine/lualine.nvim',
 		config = function()
-			require("lualine").setup({
+			require('lualine').setup({
 				sections = {
-					lualine_a = { "mode" },
+					lualine_a = { 'mode' },
 					lualine_b = {
-						{ "filename", path = 1 },
-						{ "filesize" },
+						{ 'filename', path = 1 },
+						{ 'filesize' },
 						{ wordcount, cond = is_markdown },
 						{ readingtime, cond = is_markdown },
 					},
-					lualine_c = { "diagnostics", "diff" },
-					lualine_x = { "encoding", "fileformat" },
-					lualine_y = { "location", "progress" },
-					lualine_z = { "filetype" },
+					lualine_c = { 'diagnostics', 'diff' },
+					lualine_x = { 'encoding', 'fileformat' },
+					lualine_y = { 'location', 'progress' },
+					lualine_z = { 'filetype' },
 				},
 			})
 		end,
 	},
 
 	{
-		"folke/noice.nvim",
+		'folke/noice.nvim',
 		dependencies = {
-			"MunifTanjim/nui.nvim",
-			"rcarriga/nvim-notify",
+			'MunifTanjim/nui.nvim',
+			'rcarriga/nvim-notify',
 		},
-		event = "VeryLazy",
+		event = 'VeryLazy',
 		opts = {
 			lsp = {
 				override = {
-					["vim.lsp.util.convert_input_to_markdown_lines"] = true,
-					["vim.lsp.util.stylize_markdown"] = true,
-					["cmp.entry.get_documentation"] = true,
+					['vim.lsp.util.convert_input_to_markdown_lines'] = true,
+					['vim.lsp.util.stylize_markdown'] = true,
+					['cmp.entry.get_documentation'] = true,
 				},
 			},
 			presets = {
@@ -53,43 +53,43 @@ return {
 			},
 			messages = {
 				enabled = false,
-				view = "notify",
-				view_error = "notify",
-				view_warn = "notify",
-				view_history = "messages",
-				view_search = "virtualtext",
+				view = 'notify',
+				view_error = 'notify',
+				view_warn = 'notify',
+				view_history = 'messages',
+				view_search = 'virtualtext',
 			},
 		},
 	},
 	{
-		"mrjones2014/legendary.nvim",
+		'mrjones2014/legendary.nvim',
 		dependencies = {
-			"folke/snacks.nvim",
+			'folke/snacks.nvim',
 		},
 		keys = {
-			{ "<c-l>", "<cmd>Legendary<cr>", desc = "Legendary" },
+			{ '<c-l>', '<cmd>Legendary<cr>', desc = 'Legendary' },
 		},
 		priority = 10000,
 		lazy = false,
 		init = function()
-			require("legendary").setup({ extensions = { lazy_nvim = true } })
+			require('legendary').setup({ extensions = { lazy_nvim = true } })
 		end,
 	},
 	{
-		"kristijanhusak/vim-dadbod-ui",
+		'kristijanhusak/vim-dadbod-ui',
 		dependencies = {
-			{ "tpope/vim-dadbod", lazy = true },
+			{ 'tpope/vim-dadbod', lazy = true },
 			{
-				"kristijanhusak/vim-dadbod-completion",
-				ft = { "sql", "mysql", "plsql" },
+				'kristijanhusak/vim-dadbod-completion',
+				ft = { 'sql', 'mysql', 'plsql' },
 				lazy = true,
 			},
 		},
 		cmd = {
-			"DBUI",
-			"DBUIToggle",
-			"DBUIAddConnection",
-			"DBUIFindBuffer",
+			'DBUI',
+			'DBUIToggle',
+			'DBUIAddConnection',
+			'DBUIFindBuffer',
 		},
 		init = function()
 			-- Your DBUI configuration

@@ -1,16 +1,16 @@
 return {
 	{
-		"mason-org/mason-lspconfig.nvim",
+		'mason-org/mason-lspconfig.nvim',
 		lazy = false,
 		dependencies = {
 			{
-				"mason-org/mason.nvim",
+				'mason-org/mason.nvim',
 				opts = {
 					ui = {
 						icons = {
-							package_installed = "✓",
-							package_pending = "➜",
-							package_uninstalled = "✗",
+							package_installed = '✓',
+							package_pending = '➜',
+							package_uninstalled = '✗',
 						},
 					},
 				},
@@ -19,24 +19,44 @@ return {
 		opts = {},
 	},
 	{
-		"nvimdev/lspsaga.nvim",
+		'nvimdev/lspsaga.nvim',
 		lazy = false,
 		keys = {
 			--code
-			{ "<leader>ca", "<cmd>Lspsaga code_action<cr>", desc = "code action" },
-			{ "<leader>ch", "<cmd>Lspsaga hover_doc<cr>", desc = "hover diagnostics" },
-			{ "<leader>co", "<cmd>Lspsaga outline<cr>", desc = "code outline" },
-			{ "<leader>cr", "<cmd>Lspsaga rename<cr>", "code rename" },
+			{
+				'<leader>ca',
+				'<cmd>Lspsaga code_action<cr>',
+				desc = 'code action',
+			},
+			{
+				'<leader>ch',
+				'<cmd>Lspsaga hover_doc<cr>',
+				desc = 'hover diagnostics',
+			},
+			{ '<leader>co', '<cmd>Lspsaga outline<cr>', desc = 'code outline' },
+			{ '<leader>cr', '<cmd>Lspsaga rename<cr>', 'code rename' },
 
 			--next/prev
-			{ "]d", "<cmd>Lspsaga diagnostic_jump_next<cr>", desc = "next diagnostic" },
-			{ "[d", "<cmd>Lspsaga diagnostic_jump_prev<cr>", desc = "previous diagnostic" },
+			{
+				']d',
+				'<cmd>Lspsaga diagnostic_jump_next<cr>',
+				desc = 'next diagnostic',
+			},
+			{
+				'[d',
+				'<cmd>Lspsaga diagnostic_jump_prev<cr>',
+				desc = 'previous diagnostic',
+			},
 
 			--goto
-			{ "gd", "<cmd>Lspsaga goto_definition<cr>", desc = "goto defintion" },
+			{
+				'gd',
+				'<cmd>Lspsaga goto_definition<cr>',
+				desc = 'goto defintion',
+			},
 		},
 		config = function()
-			require("lspsaga").setup({
+			require('lspsaga').setup({
 				diagnostic = {
 					border_follow = false,
 				},
@@ -45,38 +65,43 @@ return {
 					delay = 0,
 				},
 				ui = {
-					border = "rounded",
-					code_action = "",
+					border = 'rounded',
+					code_action = '',
 				},
 			})
 
-			vim.keymap.set("n", "<space>k", "<cmd>Lspsaga hover_doc<cr>", { silent = true })
+			vim.keymap.set(
+				'n',
+				'<space>k',
+				'<cmd>Lspsaga hover_doc<cr>',
+				{ silent = true }
+			)
 
 			-- error lens
 			vim.fn.sign_define({
 				{
-					name = "DiagnosticSignError",
-					text = "",
-					texthl = "DiagnosticSignError",
-					linehl = "ErrorLine",
+					name = 'DiagnosticSignError',
+					text = '',
+					texthl = 'DiagnosticSignError',
+					linehl = 'ErrorLine',
 				},
 				{
-					name = "DiagnosticSignWarn",
-					text = "",
-					texthl = "DiagnosticSignWarn",
-					linehl = "WarningLine",
+					name = 'DiagnosticSignWarn',
+					text = '',
+					texthl = 'DiagnosticSignWarn',
+					linehl = 'WarningLine',
 				},
 				{
-					name = "DiagnosticSignInfo",
-					text = "",
-					texthl = "DiagnosticSignInfo",
-					linehl = "InfoLine",
+					name = 'DiagnosticSignInfo',
+					text = '',
+					texthl = 'DiagnosticSignInfo',
+					linehl = 'InfoLine',
 				},
 				{
-					name = "DiagnosticSignHint",
-					text = "",
-					texthl = "DiagnosticSignHint",
-					linehl = "HintLine",
+					name = 'DiagnosticSignHint',
+					text = '',
+					texthl = 'DiagnosticSignHint',
+					linehl = 'HintLine',
 				},
 			})
 		end,

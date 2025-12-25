@@ -1,17 +1,17 @@
 return {
-	cmd = { "lua-language-server" },
-	filetypes = { "lua" },
+	cmd = { 'lua-language-server' },
+	filetypes = { 'lua' },
 	settings = {
 		Lua = {
 			completion = {
-				callSnippet = "Replace",
+				callSnippet = 'Replace',
 			},
 			diagnostics = {
 				-- Get the language server to recognize the `vim` global
-				globals = { "vim" },
+				globals = { 'vim' },
 			},
 			runtime = {
-				version = "LuaJIT",
+				version = 'LuaJIT',
 			},
 		},
 	},
