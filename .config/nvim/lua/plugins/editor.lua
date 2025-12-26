@@ -227,9 +227,6 @@ return {
 				)
 			end
 
-			map(']]', 'next')
-			map('[[', 'prev')
-
 			vim.api.nvim_create_autocmd('FileType', {
 				callback = function()
 					local buffer = vim.api.nvim_get_current_buf()
@@ -245,16 +242,4 @@ return {
 	},
 
 	{ 'mg979/vim-visual-multi' },
-
-	{
-		'stevearc/oil.nvim',
-		opts = {
-			columns = {
-				'icon',
-				'size',
-				'mtime',
-			},
-		},
-		dependencies = { 'nvim-tree/nvim-web-devicons' }, -- use if prefer nvim-web-devicons
-	},
 }
