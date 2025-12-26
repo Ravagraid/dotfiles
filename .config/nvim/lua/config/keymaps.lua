@@ -18,3 +18,9 @@ key.set('n', '<leader>qq', ':qa<CR>', { desc = 'quit' })
 
 --Lazy and plugin maps
 key.set('n', '<leader>l', ':Lazy<CR>', { desc = 'Lazy UI' })
+key.set(
+	'n',
+	'<leader>fe',
+	':lua MiniFiles.open()<CR>',
+	{ desc = 'file explorer' }
+)

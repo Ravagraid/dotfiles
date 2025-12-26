@@ -1,26 +1,13 @@
 return {
 	{
-		'echasnovski/mini.nvim',
-		event = 'VeryLazy',
+		'nvim-mini/mini.nvim',
 		version = '*',
 		config = function()
-			require('mini.indentscope').setup({
-				symbol = '│',
-				options = { try_as_border = true },
-			})
-			require('mini.basics').setup({
-				options = { win_borders = 'single' },
-				mappings = {
-					windows = true,
-					move_with_alt = true,
-				},
-			})
+			local miniclue = require('mini.clue')
+			-- Text editing
+			require('mini.comment').setup()
+			require('mini.move').setup()
 			require('mini.pairs').setup({
-				modes = { insert = true, command = false, terminal = false },
-				skip_next = [=[[%w%%%'%[%"%.%`%$]]=],
-				skip_ts = { 'string' },
-				skip_unbalanced = true,
-				markdown = true,
 				mappings = {
 					['*'] = {
 						action = 'closeopen',
@@ -29,27 +16,58 @@ return {
 						register = { cr = false },
 					},
 				},
+				require('mini.surround').setup(),
 			})
-			require('mini.ai').setup()
-			require('mini.comment').setup()
-			require('mini.move').setup()
-			require('mini.splitjoin').setup()
-		end,
-		init = function()
-			vim.api.nvim_create_autocmd('FileType', {
-				pattern = {
-					'help',
-					'alpha',
-					'dashboard',
-					'Trouble',
-					'trouble',
-					'lazy',
-					'mason',
-					'notify',
-					'toggleterm',
-					'lazyterm',
+			-- General workflow
+			require('mini.basics').setup()
+			miniclue.setup({
+				triggers = {
+					{ mode = 'n', keys = '<Leader>' },
+					{ mode = 'x', keys = '<Leader>' },
+
+					-- mini.basics
+					{ mode = 'n', keys = '\\' },
+
+					-- Built-in completion
+					{ mode = 'i', keys = '<C-x>' },
+
+					-- `g` key
+					{ mode = 'n', keys = 'g' },
+					{ mode = 'x', keys = 'g' },
+
+					-- Marks
+					{ mode = 'n', keys = "'" },
+					{ mode = 'n', keys = '`' },
+					{ mode = 'x', keys = "'" },
+					{ mode = 'x', keys = '`' },
+
+					-- Registers
+					{ mode = 'n', keys = '"' },
+					{ mode = 'x', keys = '"' },
+					{ mode = 'i', keys = '<C-r>' },
+					{ mode = 'c', keys = '<C-r>' },
+
+					-- Window commands
+					{ mode = 'n', keys = '<C-w>' },
+
+					-- `z` key
+					{ mode = 'n', keys = 'z' },
+					{ mode = 'x', keys = 'z' },
 				},
-				callback = function() vim.b.miniindentscope_disable = true end,
+				clues = {
+					miniclue.gen_clues.builtin_completion(),
+					miniclue.gen_clues.g(),
+					miniclue.gen_clues.marks(),
+					miniclue.gen_clues.registers(),
+					miniclue.gen_clues.windows(),
+					miniclue.gen_clues.z(),
+				},
+			})
+			require('mini.files').setup()
+			-- Appearance
+			require('mini.indentscope').setup({
+				symbol = '│',
+				options = { try_as_border = true },
 			})
 		end,
 	},
