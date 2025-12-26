@@ -13,7 +13,6 @@ key.set('n', '<leader>w|', '<C-W>v', { desc = 'split window right' })
 --Misc QOL maps
 key.set('n', '<c-a>', 'ggVG', { desc = 'Select all' })
 key.set('n', '<Leader><space>', ':nohl<CR>', { desc = 'Clear search ' })
-key.set('n', '<leader>r', ':update<CR> :source<CR>', { desc = 'refresh' })
 key.set({ 'i', 'v', 'n', 's' }, '<C-s>', ':w<CR><esc>', { desc = 'Save' })
 key.set('n', '<leader>qq', ':qa<CR>', { desc = 'quit' })
 
