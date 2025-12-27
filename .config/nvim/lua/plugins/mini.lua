@@ -65,6 +65,8 @@ return {
 			})
 			require('mini.files').setup()
 			-- Appearance
+			require('mini.animate').setup()
+			require('mini.cursorword').setup()
 			require('mini.indentscope').setup({
 				symbol = '│',
 				options = { try_as_border = true },
