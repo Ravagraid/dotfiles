@@ -10,9 +10,12 @@ key.set('n', '<leader>wd', '<C-W>c', { desc = 'delete window' })
 key.set('n', '<leader>w-', '<C-W>s', { desc = 'split window below' })
 key.set('n', '<leader>w|', '<C-W>v', { desc = 'split window right' })
 
+-- cursor
+key.set({ 'i', 'v', 'n', 's' }, '<C-s>', ':w<CR><esc>', { desc = 'Save' })
+
 --Misc QOL maps
 key.set('n', '<c-a>', 'ggVG', { desc = 'Select all' })
-key.set('n', '<Leader><space>', ':nohl<CR>', { desc = 'Clear search ' })
+key.set('n', '<Leader><space>', ':nohl<CR>', { desc = 'Clear search' })
 key.set({ 'i', 'v', 'n', 's' }, '<C-s>', ':w<CR><esc>', { desc = 'Save' })
 key.set('n', '<leader>qq', ':qa<CR>', { desc = 'quit' })
 

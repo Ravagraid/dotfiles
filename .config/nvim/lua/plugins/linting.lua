@@ -4,7 +4,7 @@ return {
 	config = function()
 		require('lint').linters_by_ft = {
 			c = { 'cpplint' },
-			-- lua = { "selene" },
+			-- lua = { 'selene' },
 		}
 
 		vim.api.nvim_create_autocmd(

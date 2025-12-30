@@ -1,16 +1,4 @@
 return {
-	--Toggler
-	{
-		'rmagatti/alternate-toggler',
-		keys = {
-			{
-				'<leader>i',
-				'<cmd>ToggleAlternate<cr>',
-			},
-		},
-		opts = { alternates = { ['=='] = '!=' } },
-	},
-	{ 'gbprod/yanky.nvim', opts = {} },
 	{
 		'saghen/blink.cmp',
 		dependencies = { 'rafamadriz/friendly-snippets' },
@@ -27,6 +15,7 @@ return {
 	},
 	{
 		'folke/todo-comments.nvim',
+		lazy = false,
 		dependencies = {
 			'nvim-lua/plenary.nvim',
 			'nvim-telescope/telescope.nvim',
@@ -56,16 +45,6 @@ return {
 				'<leader>sT',
 				'<cmd>TodoTelescope keywords=TODO,FIX,FIXME<cr>',
 				desc = 'Todo/Fix/Fixme',
-			},
-		},
-	},
-	{
-		'abecodes/tabout.nvim',
-		dependencies = { 'nvim-treesitter/nvim-treesitter', 'hrsh7th/nvim-cmp' },
-		opts = {
-			tabouts = {
-				{ open = '*', close = '*' },
-				{ open = '|', close = '|' },
 			},
 		},
 	},
