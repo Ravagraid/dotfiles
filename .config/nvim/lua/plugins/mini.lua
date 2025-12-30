@@ -63,7 +63,9 @@ return {
 					miniclue.gen_clues.z(),
 				},
 			})
+			require('mini.diff').setup()
 			require('mini.files').setup()
+			require('mini.git').setup()
 			-- Appearance
 			require('mini.animate').setup()
 			require('mini.cursorword').setup()
