@@ -35,7 +35,6 @@ return {
 			'MunifTanjim/nui.nvim',
 			'rcarriga/nvim-notify',
 		},
-		event = 'VeryLazy',
 		opts = {
 			lsp = {
 				override = {
@@ -53,11 +52,6 @@ return {
 			},
 			messages = {
 				enabled = false,
-				view = 'notify',
-				view_error = 'notify',
-				view_warn = 'notify',
-				view_history = 'messages',
-				view_search = 'virtualtext',
 			},
 		},
 	},
