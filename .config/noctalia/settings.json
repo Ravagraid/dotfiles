@@ -111,7 +111,8 @@
                     "hidePassive": false,
                     "id": "Tray",
                     "pinned": [
-                        "nm-applet"
+                        "nm-applet",
+                        "WebCord"
                     ]
                 },
                 {
