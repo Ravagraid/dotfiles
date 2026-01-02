@@ -61,6 +61,8 @@ return {
 				miniclue.gen_clues.registers(),
 				miniclue.gen_clues.windows(),
 				miniclue.gen_clues.z(),
+
+				{ mode = 'n', keys = '' },
 			},
 		})
 		require('mini.files').setup()
@@ -70,6 +72,35 @@ return {
 		require('mini.indentscope').setup({
 			symbol = '│',
 			options = { try_as_border = true },
+		})
+		require('mini.icons').setup({
+			lsp = { -- Icons from lspkind.nvim
+				text = { glyph = '󰉿' },
+				method = { glyph = '󰆧' },
+				['function'] = { glyph = '󰊕' },
+				constructor = { glyph = '' },
+				field = { glyph = '󰜢' },
+				variable = { glyph = '󰀫' },
+				class = { glyph = '󰠱' },
+				interface = { glyph = '' },
+				module = { glyph = '' },
+				property = { glyph = '󰜢' },
+				unit = { glyph = '󰑭' },
+				value = { glyph = '󰎠' },
+				enum = { glyph = '' },
+				keyword = { glyph = '󰌋' },
+				snippet = { glyph = '' },
+				color = { glyph = '󰏘' },
+				file = { glyph = '󰈙' },
+				reference = { glyph = '󰈇' },
+				folder = { glyph = '󰉋' },
+				enumMember = { glyph = '' },
+				constant = { glyph = '󰏿' },
+				struct = { glyph = '󰙅' },
+				event = { glyph = '' },
+				operator = { glyph = '󰆕' },
+				typeParameter = { glyph = '' },
+			},
 		})
 	end,
 }
