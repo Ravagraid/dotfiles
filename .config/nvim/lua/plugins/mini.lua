@@ -1,76 +1,75 @@
 return {
-	{
-		'nvim-mini/mini.nvim',
-		version = '*',
-		config = function()
-			local miniclue = require('mini.clue')
-			-- Text editing
-			require('mini.comment').setup()
-			require('mini.move').setup()
-			require('mini.pairs').setup({
-				mappings = {
-					['*'] = {
-						action = 'closeopen',
-						pair = '**',
-						neigh_pattern = '[^\\].',
-						register = { cr = false },
-					},
+	'nvim-mini/mini.nvim',
+	version = '*',
+	config = function()
+		local miniclue = require('mini.clue')
+		-- Text editing
+		require('mini.comment').setup()
+		require('mini.move').setup()
+		require('mini.pairs').setup({
+			mappings = {
+				['*'] = {
+					action = 'closeopen',
+					pair = '**',
+					neigh_pattern = '[^\\].',
+					register = { cr = false },
 				},
-				require('mini.surround').setup(),
-			})
-			-- General workflow
-			require('mini.basics').setup()
-			miniclue.setup({
-				triggers = {
-					{ mode = 'n', keys = '<Leader>' },
-					{ mode = 'x', keys = '<Leader>' },
+			},
+		})
+		require('mini.surround').setup()
 
-					-- mini.basics
-					{ mode = 'n', keys = '\\' },
+		-- General workflow
+		require('mini.basics').setup()
+		miniclue.setup({
+			triggers = {
+				{ mode = 'n', keys = '<Leader>' },
+				{ mode = 'x', keys = '<Leader>' },
 
-					-- Built-in completion
-					{ mode = 'i', keys = '<C-x>' },
+				-- mini.basics
+				{ mode = 'n', keys = '\\' },
 
-					-- `g` key
-					{ mode = 'n', keys = 'g' },
-					{ mode = 'x', keys = 'g' },
+				-- Built-in completion
+				{ mode = 'i', keys = '<C-x>' },
 
-					-- Marks
-					{ mode = 'n', keys = "'" },
-					{ mode = 'n', keys = '`' },
-					{ mode = 'x', keys = "'" },
-					{ mode = 'x', keys = '`' },
+				-- `g` key
+				{ mode = 'n', keys = 'g' },
+				{ mode = 'x', keys = 'g' },
 
-					-- Registers
-					{ mode = 'n', keys = '"' },
-					{ mode = 'x', keys = '"' },
-					{ mode = 'i', keys = '<C-r>' },
-					{ mode = 'c', keys = '<C-r>' },
+				-- Marks
+				{ mode = 'n', keys = "'" },
+				{ mode = 'n', keys = '`' },
+				{ mode = 'x', keys = "'" },
+				{ mode = 'x', keys = '`' },
 
-					-- Window commands
-					{ mode = 'n', keys = '<C-w>' },
+				-- Registers
+				{ mode = 'n', keys = '"' },
+				{ mode = 'x', keys = '"' },
+				{ mode = 'i', keys = '<C-r>' },
+				{ mode = 'c', keys = '<C-r>' },
 
-					-- `z` key
-					{ mode = 'n', keys = 'z' },
-					{ mode = 'x', keys = 'z' },
-				},
-				clues = {
-					miniclue.gen_clues.builtin_completion(),
-					miniclue.gen_clues.g(),
-					miniclue.gen_clues.marks(),
-					miniclue.gen_clues.registers(),
-					miniclue.gen_clues.windows(),
-					miniclue.gen_clues.z(),
-				},
-			})
-			require('mini.files').setup()
-			-- Appearance
-			require('mini.animate').setup()
-			require('mini.cursorword').setup()
-			require('mini.indentscope').setup({
-				symbol = '│',
-				options = { try_as_border = true },
-			})
-		end,
-	},
+				-- Window commands
+				{ mode = 'n', keys = '<C-w>' },
+
+				-- `z` key
+				{ mode = 'n', keys = 'z' },
+				{ mode = 'x', keys = 'z' },
+			},
+			clues = {
+				miniclue.gen_clues.builtin_completion(),
+				miniclue.gen_clues.g(),
+				miniclue.gen_clues.marks(),
+				miniclue.gen_clues.registers(),
+				miniclue.gen_clues.windows(),
+				miniclue.gen_clues.z(),
+			},
+		})
+		require('mini.files').setup()
+		-- Appearance
+		require('mini.animate').setup()
+		require('mini.cursorword').setup()
+		require('mini.indentscope').setup({
+			symbol = '│',
+			options = { try_as_border = true },
+		})
+	end,
 }
