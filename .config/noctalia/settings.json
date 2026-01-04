@@ -329,7 +329,7 @@
         "forced": false,
         "manualSunrise": "06:30",
         "manualSunset": "18:30",
-        "nightTemp": "4502"
+        "nightTemp": "5000"
     },
     "notifications": {
         "backgroundOpacity": 1,
