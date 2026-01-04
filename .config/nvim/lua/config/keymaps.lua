@@ -18,6 +18,7 @@ key.set('n', '<c-a>', 'ggVG', { desc = 'Select all' })
 key.set('n', '<Leader><space>', ':nohl<CR>', { desc = 'Clear search' })
 key.set({ 'i', 'v', 'n', 's' }, '<C-s>', ':w<CR><esc>', { desc = 'Save' })
 key.set('n', '<leader>qq', ':qa<CR>', { desc = 'quit' })
+key.set('n', '<leader>qw', ':q!<CR>', { desc = 'quit w/o save' })
 
 --Lazy and plugin maps
 key.set('n', '<leader>l', ':Lazy<CR>', { desc = 'Lazy UI' })

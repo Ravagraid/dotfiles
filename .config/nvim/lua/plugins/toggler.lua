@@ -4,6 +4,7 @@ return {
 		{
 			'<leader>i',
 			'<cmd>ToggleAlternate<cr>',
+			desc = 'Toggle',
 		},
 	},
 	opts = { alternates = { ['=='] = '!=' } },

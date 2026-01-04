@@ -62,7 +62,10 @@ return {
 				miniclue.gen_clues.windows(),
 				miniclue.gen_clues.z(),
 
-				{ mode = 'n', keys = '' },
+				{ mode = 'n', keys = '<leader>c', desc = 'Saga Functions' },
+				{ mode = 'n', keys = '<leader>f', desc = 'Find' },
+				{ mode = 'n', keys = '<leader>q', desc = 'Quit' },
+				{ mode = 'n', keys = '<leader>x', desc = 'Trouble' },
 			},
 		})
 		require('mini.files').setup()
