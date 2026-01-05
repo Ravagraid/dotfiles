@@ -2,13 +2,9 @@ return {
 	'mason-org/mason-lspconfig.nvim',
 	opts = {
 		ensure_installed = {
-			'beautysh',
-			'clang-format',
 			'jsonls',
 			'lua_ls',
 			'markdown_oxide',
-			'mdformat',
-			'prettypst',
 			'stylua',
 			'tinymist',
 		},

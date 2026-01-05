@@ -16,6 +16,7 @@ return {
 				zsh = { 'beautysh' },
 				bash = { 'beautysh' },
 				sh = { 'beautysh' },
+				kdl = { 'kdlfmt' },
 
 				-- typesetting
 				typst = { 'prettypst' },
