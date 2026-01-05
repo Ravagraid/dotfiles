@@ -1,24 +1,5 @@
 return {
 	{
-		'mason-org/mason-lspconfig.nvim',
-		lazy = false,
-		dependencies = {
-			{
-				'mason-org/mason.nvim',
-				opts = {
-					ui = {
-						icons = {
-							package_installed = '✓',
-							package_pending = '➜',
-							package_uninstalled = '✗',
-						},
-					},
-				},
-			},
-		},
-		opts = {},
-	},
-	{
 		'nvimdev/lspsaga.nvim',
 		lazy = false,
 		keys = {
