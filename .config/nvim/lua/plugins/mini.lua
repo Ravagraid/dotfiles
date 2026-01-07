@@ -104,6 +104,7 @@ return {
 				operator = { glyph = '󰆕' },
 				typeParameter = { glyph = '' },
 			},
+			mock_nvim_web_devicons = true,
 		})
 	end,
 }
