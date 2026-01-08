@@ -7,26 +7,27 @@ local function is_markdown()
 end
 
 return {
-	--Statusline
 	{
 		'nvim-lualine/lualine.nvim',
-		config = function()
-			require('lualine').setup({
-				sections = {
-					lualine_a = { 'mode' },
-					lualine_b = {
-						{ 'filename', path = 1 },
-						{ 'filesize' },
-						{ wordcount, cond = is_markdown },
-						{ readingtime, cond = is_markdown },
-					},
-					lualine_c = { 'diagnostics', 'diff' },
-					lualine_x = { 'encoding', 'fileformat' },
-					lualine_y = { 'location', 'progress' },
-					lualine_z = { 'filetype' },
+		opts = {
+			options = {
+				component_separators = '',
+				section_separators = { left = '', right = '' },
+			},
+			sections = {
+				lualine_a = { 'mode', 'branch' },
+				lualine_b = {
+					{ 'filename', path = 1 },
+					{ 'filesize' },
+					{ wordcount, cond = is_markdown },
+					{ readingtime, cond = is_markdown },
 				},
-			})
-		end,
+				lualine_c = { 'diagnostics', 'diff' },
+				lualine_x = { 'encoding', 'fileformat' },
+				lualine_y = { 'location', 'progress' },
+				lualine_z = { 'filetype' },
+			},
+		},
 	},
 
 	{
