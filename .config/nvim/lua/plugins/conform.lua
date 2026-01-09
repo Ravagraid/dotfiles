@@ -10,7 +10,7 @@ return {
 				lua = { 'stylua' },
 
 				--note taking
-				markdown = { 'mdformat' },
+				markdown = { 'prettier' },
 
 				-- config
 				zsh = { 'beautysh' },
