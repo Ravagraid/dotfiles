@@ -4,7 +4,7 @@
   "configuredIcon": "world-download",
   "hideOnZero": false,
   "updateIntervalMinutes": 30,
-  "updateTerminalCommand": "foot -e",
+  "updateTerminalCommand": "kitty -e",
   "currentIconName": "world-download",
   "customCmdGetNumUpdates": "",
   "customCmdDoSystemUpdate": ""
