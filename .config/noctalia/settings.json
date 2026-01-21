@@ -309,11 +309,11 @@
     },
     "location": {
         "analogClockInCalendar": false,
-        "firstDayOfWeek": -1,
+        "firstDayOfWeek": 1,
         "name": "Scunthorpe, UK",
         "showCalendarEvents": true,
         "showCalendarWeather": true,
-        "showWeekNumberInCalendar": false,
+        "showWeekNumberInCalendar": true,
         "use12hourFormat": false,
         "useFahrenheit": false,
         "weatherEnabled": true,
