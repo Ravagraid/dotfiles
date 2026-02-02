@@ -90,7 +90,7 @@ position x=1280 y=0
 // https://yalter.github.io/niri/Configuration:-Layout
 layout {
     // Set gaps around windows in logical pixels.
-    gaps 10
+    gaps 5
     // When to center a column when changing focus, options are:
     // - "never", default behavior, focusing an off-screen column will keep at the left
     //   or right edge of the screen.
@@ -314,7 +314,7 @@ binds {
         spawn "fuzzel"
     }
     Mod+Alt+L hotkey-overlay-title="Lock the Screen" {
-        spawn "qs" "-c" "noctalia-shell" "ipc" "call" "lockScreen" "lock"
+        spawn-sh "qs -c noctalia-shell ipc call lockScreen lock"
     }
     // Use spawn-sh to run a shell command. Do this if you need pipes, multiple commands, etc.
     // Note: the entire command goes as a single argument. It's passed verbatim to `sh -c`.
