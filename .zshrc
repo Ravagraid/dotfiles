@@ -22,5 +22,12 @@ export DOTFILES=$HOME/.config/dotfiles.git
 
 alias zshconfig="nvim ~/.zshrc"
 alias ohmyzsh="nvim ~/.oh-my-zsh"
-alias gitdf='git --git-dir=$DOTFILES --work-tree=$HOME'
+
+alias dot='git --git-dir=$DOTFILES --work-tree=$HOME'
+alias whatami='curl ipinfo.io/ip'
+alias fuck='sudo $(history -p !!)'
+
+alias orphans='paru -Qtdq'
+alias coalmine='sudo paru -Rns $(paru -Qtdq)'
+alias list="paru -Qqe | fzf --preview 'paru -Qil {}' --height=97% --layout=reverse --bind 'enter:execute(paru -Qil {} | less)'"
 alias remove='paru -Rcs'
