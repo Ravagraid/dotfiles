@@ -8,7 +8,6 @@ return {
 				-- programming
 				c = { 'clang-format' },
 				lua = { 'stylua' },
-
 				--note taking
 				markdown = { 'prettier' },
 
@@ -17,6 +16,9 @@ return {
 				bash = { 'beautysh' },
 				sh = { 'beautysh' },
 				kdl = { 'kdlfmt' },
+
+				-- typesetting
+				typst = { 'typstyle' },
 			},
 			format_on_save = {
 				timeout_ms = 500,
