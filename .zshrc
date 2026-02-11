@@ -24,6 +24,7 @@ alias zshconfig="nvim ~/.zshrc"
 alias ohmyzsh="nvim ~/.oh-my-zsh"
 
 alias dot='git --git-dir=$DOTFILES --work-tree=$HOME'
+alias lazydot='lazygit --git-dir=$DOTFILES --work-tree=$HOME'
 alias whatami='curl ipinfo.io/ip'
 
 alias orphans='paru -Qtdq'
