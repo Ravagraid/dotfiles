@@ -4,6 +4,7 @@ return {
 		'nvim-treesitter/nvim-treesitter',
 		'nvim-tree/nvim-web-devicons',
 	},
+	lazy = false,
 	keys = {
 		--code
 		{ '<leader>ca', '<cmd>Lspsaga code_action<cr>', desc = 'code action' },
@@ -40,7 +41,7 @@ return {
 				border_follow = false,
 			},
 			symbol_in_winbar = {
-				show_file = false,
+				show_file = true,
 				delay = 0,
 			},
 			ui = {

@@ -1,5 +1,8 @@
 local key = vim.keymap
 
+vim.g.mapleader = ' '
+vim.g.maplocalleader = ' '
+
 -- better up/down
 key.set('n', 'j', 'gj')
 key.set('n', 'k', 'gk')
