@@ -22,9 +22,9 @@ return {
 				{ readingtime, cond = is_markdown },
 			},
 			lualine_c = { 'diagnostics', 'diff' },
-			lualine_x = { 'encoding', 'fileformat' },
-			lualine_y = { 'location', 'progress' },
-			lualine_z = { 'filetype' },
+			lualine_x = {},
+			lualine_y = { 'location', 'progress', 'filetype' },
+			lualine_z = {},
 		},
 	},
 }
