@@ -11,5 +11,10 @@ return {
 			"<cmd>lua require('fzf-lua').live_grep()<cr>",
 			desc = 'find text',
 		},
+		{
+			'<leader>fx',
+			"<cmd>lua require('fzf-lua').diagnostics_document()<cr>",
+			desc = 'find diagnostics',
+		},
 	},
 }

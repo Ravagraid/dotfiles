@@ -1,13 +1,11 @@
 local api = vim.api
 local augroup = vim.api.nvim_create_augroup('UserConfig', { clear = true })
 
-api.nvim_create_autocmd(
-	{ 'BufWritePost', 'BufReadPost', 'InsertLeave', 'TextChanged' },
-	{
-		group = augroup,
-		callback = function() require('lint').try_lint() end,
-	}
-)
+-- highlight on yank
+api.nvim_create_autocmd('TextYankPost', {
+	group = augroup,
+	callback = function() vim.hl.on_yank() end,
+})
 
 -- return to last cursor position
 api.nvim_create_autocmd('BufReadPost', {

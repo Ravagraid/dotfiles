@@ -15,25 +15,28 @@ vim.api.nvim_create_autocmd('LspAttach', {
 				ev.buf,
 				{ autotrigger = true }
 			)
-			vim.keymap.set(
-				'i',
-				'<C-Space>',
-				function() vim.lsp.completion.get() end
-			)
 		end
 	end,
 })
 
--- Diagnostics
 vim.diagnostic.config({
-	underline = false,
-	virtual_text = false,
 	signs = {
 		text = {
 			[vim.diagnostic.severity.ERROR] = '',
 			[vim.diagnostic.severity.WARN] = '',
-			[vim.diagnostic.severity.INFO] = '',
-			[vim.diagnostic.severity.HINT] = '',
+			[vim.diagnostic.severity.HINT] = '',
+			[vim.diagnostic.severity.INFO] = '',
 		},
+	},
+	underline = true,
+	update_in_insert = false,
+	severity_sort = true,
+	float = {
+		border = 'rounded',
+		source = 'always',
+		header = '',
+		prefix = '',
+		focusable = false,
+		style = 'minimal',
 	},
 })

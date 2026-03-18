@@ -6,7 +6,6 @@ opt.cursorline = true
 opt.wrap = false
 opt.scrolloff = 5
 opt.sidescrolloff = 5
-
 opt.tabstop = 2
 opt.shiftwidth = 2
 opt.softtabstop = 2
