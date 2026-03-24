@@ -9,8 +9,7 @@ return {
 			changedelete = { text = '▎' },
 			untracked = { text = '▎' },
 		},
-		current_line_blame = true,
 		signcolumn = true,
+		current_line_blame = true,
 	},
-	init = function() require('gitsigns').setup() end,
 }
