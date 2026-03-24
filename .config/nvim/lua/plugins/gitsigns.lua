@@ -10,6 +10,7 @@ return {
 			untracked = { text = '▎' },
 		},
 		current_line_blame = true,
+		signcolumn = true,
 	},
 	init = function() require('gitsigns').setup() end,
 }
