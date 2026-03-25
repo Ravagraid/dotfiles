@@ -104,7 +104,7 @@ return {
 				operator = { glyph = '󰆕' },
 				typeParameter = { glyph = '' },
 			},
-			mock_nvim_web_devicons = true,
 		})
+		require('mini.icons').mock_nvim_web_devicons()
 	end,
 }
