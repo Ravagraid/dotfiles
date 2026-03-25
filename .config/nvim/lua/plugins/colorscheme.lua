@@ -16,5 +16,4 @@ return {
 			})
 		end,
 	},
-	{ 'nvim-tree/nvim-web-devicons', opts = {} },
 }

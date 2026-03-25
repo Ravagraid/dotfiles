@@ -5,7 +5,6 @@ return {
 	opts = {
 		keymap = { preset = 'default' },
 		completion = {
-			documentation = { auto_show = true },
 			menu = {
 				draw = {
 					columns = {
@@ -19,20 +18,6 @@ return {
 									require('mini.icons').get('lsp', ctx.kind)
 								return kind_icon
 							end,
-							-- (optional) use highlights from mini.icons
-							highlight = function(ctx)
-								local _, hl, _ =
-									require('mini.icons').get('lsp', ctx.kind)
-								return hl
-							end,
-						},
-						kind = {
-							-- (optional) use highlights from mini.icons
-							highlight = function(ctx)
-								local _, hl, _ =
-									require('mini.icons').get('lsp', ctx.kind)
-								return hl
-							end,
 						},
 					},
 				},
@@ -41,7 +26,9 @@ return {
 		sources = {
 			default = { 'lsp', 'path', 'snippets', 'buffer' },
 		},
-		fuzzy = { implementation = 'prefer_rust_with_warning' },
+		fuzzy = {
+			implementation = 'prefer_rust',
+			prebuilt_binaries = { download = true },
+		},
 	},
-	opts_extend = { 'sources.default' },
 }
