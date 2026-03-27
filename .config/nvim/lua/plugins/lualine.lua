@@ -1,4 +1,4 @@
-local function wordcount() return tostring(vim.fn.wordcount().words) .. 'words' end
+local function wordcount() return tostring(vim.fn.wordcount().words) .. ' words' end
 local function readingtime()
 	return tostring(math.ceil(vim.fn.wordcount().words / 200.0)) .. ' min'
 end
