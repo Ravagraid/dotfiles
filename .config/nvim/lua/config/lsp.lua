@@ -41,6 +41,10 @@ vim.diagnostic.config({
 	},
 })
 
+vim.lsp.config['*'] = {
+	capabilities = require('blink.cmp').get_lsp_capabilities(),
+}
+
 vim.lsp.config('lua_ls', {
 	cmd = { 'lua-language-server' },
 	filetypes = { 'lua' },
@@ -54,6 +58,13 @@ vim.lsp.config('lua_ls', {
 	},
 })
 
+vim.lsp.config('markdown_oxide', {
+	cmd = { 'markdown-oxide' },
+	filetypes = { 'markdown' },
+	root_markers = { '.git', '.obsidian', '.moxide.toml' },
+})
+
 vim.lsp.enable({
 	'lua_ls',
+	'markdown_oxide',
 })
