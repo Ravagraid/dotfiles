@@ -24,6 +24,7 @@ opt.concealcursor = ''
 opt.synmaxcol = 300
 opt.fillchars = { eob = ' ' }
 opt.termguicolors = true
+opt.cmdheight = 0
 
 local undodir = vim.fn.expand('~/.vim/undodir')
 if vim.fn.isdirectory(undodir) == 0 then vim.fn.mkdir(undodir, 'p') end
