@@ -7,16 +7,10 @@
         }
     ],
     "states": {
-        "catwalk": {
-            "enabled": true
-        },
         "network-manager-vpn": {
             "enabled": true
         },
         "update-count": {
-            "enabled": true
-        },
-        "weekly-calendar": {
             "enabled": true
         }
     },
