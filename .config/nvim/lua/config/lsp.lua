@@ -58,6 +58,28 @@ vim.lsp.config('lua_ls', {
 	},
 })
 
+vim.lsp.config('clangd', {
+	cmd = {
+		'clangd',
+		'--background-index',
+		'--clang-tidy',
+		'--header-insertion=iwyu',
+		'--completion-style=detailed',
+		'--function-arg-placeholders',
+		'--fallback-style=llvm',
+	},
+	filetypes = { 'c', 'cpp', 'objc', 'objcpp' },
+	root_markers = {
+		'.clangd',
+		'.clang-tidy',
+		'.clang-format',
+		'compile_commands.json',
+		'compile_flags.txt',
+		'configure.ac',
+		'.git',
+	},
+})
+
 vim.lsp.config('markdown_oxide', {
 	cmd = { 'markdown-oxide' },
 	filetypes = { 'markdown' },
@@ -66,5 +88,6 @@ vim.lsp.config('markdown_oxide', {
 
 vim.lsp.enable({
 	'lua_ls',
+	'clangd',
 	'markdown_oxide',
 })
