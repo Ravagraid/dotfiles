@@ -19,8 +19,5 @@ return {
 			inc_rename = true,
 			lsp_doc_border = false,
 		},
-		messages = {
-			enabled = false,
-		},
 	},
 }
