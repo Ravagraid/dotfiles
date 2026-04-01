@@ -42,5 +42,6 @@ return {
 			},
 		},
 		quickfile = { enabled = true },
+		win = { relative = 'cursor', backdrop = true },
 	},
 }
