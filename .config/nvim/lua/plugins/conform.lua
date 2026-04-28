@@ -8,8 +8,11 @@ return {
 				-- programming
 				c = { 'clang-format' },
 				lua = { 'stylua' },
-				--note taking
+
+				--web dev
 				markdown = { 'prettier' },
+				javascript = { 'prettier' },
+				typescript = { 'prettier' },
 
 				-- config
 				zsh = { 'beautysh' },

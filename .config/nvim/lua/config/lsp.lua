@@ -58,6 +58,11 @@ vim.lsp.config('lua_ls', {
 	},
 })
 
+vim.lsp.config.bashls = {
+	cmd = { 'bash-language-server', 'start' },
+	filetypes = { 'bash', 'sh', 'zsh' },
+}
+
 vim.lsp.config('clangd', {
 	cmd = {
 		'clangd',
@@ -86,8 +91,28 @@ vim.lsp.config('markdown_oxide', {
 	root_markers = { '.git', '.obsidian', '.moxide.toml' },
 })
 
+vim.lsp.config('ts_ls', {
+	cmd = { 'typescript-language-server', '--stdio' },
+	filetypes = {
+		'javascript',
+		'javascriptreact',
+		'javascript.jsx',
+		'typescript',
+		'typescriptreact',
+		'typescript.tsx',
+	},
+	root_markers = {
+		'package-lock.json',
+		'yarn.lock',
+		'pnpm-lock.yaml',
+		'.git',
+	},
+})
+
 vim.lsp.enable({
 	'lua_ls',
+	'bashls',
 	'clangd',
 	'markdown_oxide',
+	'ts_ls',
 })
