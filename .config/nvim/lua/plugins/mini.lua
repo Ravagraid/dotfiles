@@ -67,6 +67,7 @@ return {
 				{ mode = 'n', keys = '<leader>x', desc = 'Trouble' },
 			},
 		})
+		require('mini.diff').setup()
 		require('mini.files').setup()
 
 		-- Appearance
