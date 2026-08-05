@@ -2,35 +2,6 @@
 # oh-my-zsh
 ############################################################
 
-# if does not exist, install it
-if [ ! -d $HOME/.oh-my-zsh ]; then
-    sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-fi
-
-if [ ! -d $HOME/.oh-my-zsh/custom/plugins/zsh-autosuggestions ]; then
-    git clone https://github.com/zsh-users/zsh-autosuggestions \
-        ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
-fi
-
-if [ ! -d $HOME/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting ]; then
-    git clone https://github.com/zsh-users/zsh-syntax-highlighting \
-        ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
-fi
-
-# Path to your Oh My Zsh installation.
-export ZSH="$HOME/.oh-my-zsh"
-
-# update automatically without asking
-zstyle ':omz:update' mode auto
-zstyle ':omz:update' frequency 7
-
-# See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-ZSH_THEME="eastwood"
-
-DISABLE_MAGIC_FUNCTIONS="true"
-
-COMPLETION_WAITING_DOTS="true"
-
 plugins=(
     aliases
     archlinux
@@ -38,30 +9,22 @@ plugins=(
     git
     git-commit
     gitfast
-    hitchhiker
-    lol
     z
     zsh-autosuggestions
     zsh-syntax-highlighting
 )
 
-source $ZSH/oh-my-zsh.sh
-
 ############################################################
 # Environment Variables
 ############################################################
 
-export EDITOR=nvim visudo
-export VISUAL=nvim visudo
 export SUDO_EDITOR=nvim
-export TERMINAL=kitty
-export DOTFILES=$HOME/.config/dotfiles.git
 
 ############################################################
-# History Config
+# History/cache Config
 ############################################################
 
-HISTFILE=~/.zsh_history
+HISTFILE="$XDG_CACHE_HOME/zsh/.zsh_history"
 HISTSIZE=10000
 SAVEHIST=$HISTSIZE
 HISTDUP=erase
@@ -109,11 +72,6 @@ pathprepend "$HOME/bin" "$HOME/sbin" "$HOME/.local/bin" "$HOME/local/bin" "$HOME
 
 # configs
 alias zshconfig='nvim ~/.zshrc'
-alias ohmyzsh='nvim ~/.oh-my-zsh'
-
-# dotfiles
-alias dot='git --git-dir=$DOTFILES --work-tree=$HOME'
-alias lazydot='lazygit --git-dir=$DOTFILES --work-tree=$HOME'
 
 # lsd
 if [[ -x "$(command -v lsd)" ]]; then
