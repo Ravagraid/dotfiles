@@ -26,10 +26,9 @@ input {
         natural-scroll
     }
     warp-mouse-to-focus
+    focus-follows-mouse
 }
 layout {
-    background-color "transparent"
-    center-focused-column "never"
     preset-column-widths {
         proportion 0.33333
         proportion 0.5
@@ -40,8 +39,6 @@ layout {
     }
     border {
         off
-        width 2
-        active-color "#707070"
     }
     shadow {
         softness 30
@@ -132,17 +129,10 @@ window-rule {
     open-floating true
 }
 window-rule {
-    match app-id="^steam$" title="^notificationtoasts_\\d+_desktop$"
-    default-floating-position x=10 y=10 relative-to="bottom-right"
-    open-focused false
-}
-window-rule {
-    match app-id="^org\\.wezfurlong\\.wezterm$"
-    match app-id="Alacritty"
-    match app-id="zen"
-    match app-id="com.mitchellh.ghostty"
     match app-id="kitty"
-    draw-border-with-background false
+    background-effect {
+        blur true
+    }
 }
 window-rule {
     match app-id="firefox$" title="^Picture-in-Picture$"
@@ -154,9 +144,6 @@ window-rule {
     match app-id="org.quickshell$"
     match app-id="com.danklinux.dms$"
     open-floating true
-}
-debug {
-    honor-xdg-activation-with-invalid-serial
 }
 // Override to disable super+tab
 recent-windows {
