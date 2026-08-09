@@ -12,8 +12,8 @@ opt.autoindent = true
 opt.hlsearch = true
 
 opt.colorcolumn = '80'
+opt.signcolumn = 'no'
 opt.showmatch = true
-opt.cmdheight = 1
 opt.completeopt = 'menuone,noinsert,noselect'
 opt.pumheight = 10
 opt.pumblend = 10
