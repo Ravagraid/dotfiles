@@ -13,3 +13,9 @@
 [submodule ".config/zsh/plugins/zsh-completions"]
 	path = .config/zsh/plugins/zsh-completions
 	url = https://github.com/zsh-users/zsh-completions.git
+[submodule ".config/zsh/plugins/zsh-abbr"]
+	path = .config/zsh/plugins/zsh-abbr
+	url = https://github.com/olets/zsh-abbr
+[submodule ".config/zsh/plugins/zsh-autosuggestions-abbreviations-strategy"]
+	path = .config/zsh/plugins/zsh-autosuggestions-abbreviations-strategy
+	url = https://github.com/olets/zsh-autosuggestions-abbreviations-strategy/
