@@ -19,3 +19,6 @@
 [submodule ".config/zsh/plugins/zsh-autosuggestions-abbreviations-strategy"]
 	path = .config/zsh/plugins/zsh-autosuggestions-abbreviations-strategy
 	url = https://github.com/olets/zsh-autosuggestions-abbreviations-strategy/
+[submodule ".config/zsh/plugins/fzf-tab"]
+	path = .config/zsh/plugins/fzf-tab
+	url = https://github.com/Aloxaf/fzf-tab/

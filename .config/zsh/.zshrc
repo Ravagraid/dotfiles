@@ -3,8 +3,7 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
 fi
 
 ############################################################
-# oh-my-zsh
-############################################################
+# oh-my-zsh ###########################################################
 
 plugins=(
   aliases
@@ -82,12 +81,13 @@ function pathprepend() {
 # Add most common bin paths inside home folder
 pathprepend "$HOME/bin" "$HOME/sbin" "$HOME/.local/bin" "$HOME/local/bin" "$HOME/.bin"
 
+MANPATH=$XDG_DATA_HOME/man:$MANPATH
+
 ############################################################
 # Aliases
 ############################################################
 
 alias zshconfig='nvim $ZDOTDIR/.zshrc'
-alias clear="clear && printf '\n%.0s' {1..$LINES}"
 
 # lsd
 if [[ -x "$(command -v lsd)" ]]; then
@@ -205,12 +205,13 @@ zstyle ':completion::complete:*' use-cache true
 zstyle ':completion::complete:*' cache-path $XDG_CACHE_HOME/zsh/compcache
 zstyle ':completion:*:descriptions' format [%d]
 zstyle ':completion:*:manuals' separate-sections true
+zstyle ':fzf-tab:*' prefix ''
 
 # Enable cached completions, if found
 [[ -d $XDG_CACHE_HOME/zsh/fpath ]] || fpath=($XDG_CACHE_HOME/zsh/fpath $fpath)
 
 # more completions
-fpath=($ZDOTDIR/plugins/zsh-completions/src $fpath)
+fpath=($ZDOTDIR/plugins/zsh-completions/src $ZDOTDIR/fpath $fpath)
 
 zmodload zsh/complist
 
@@ -230,15 +231,19 @@ fi
 
 eval "$(pay-respects zsh)"
 
-print ${(pl:$LINES::\n:):-}
 source "$ZDOTDIR/plugins/powerlevel10k/powerlevel10k.zsh-theme"
 [[ ! -f ~/.config/zsh/.p10k.zsh ]] || source ~/.config/zsh/.p10k.zsh
 
 source $ZDOTDIR/plugins/zsh-autopair/autopair.zsh
 
+source $ZDOTDIR/plugins/zsh-abbr/zsh-abbr.zsh
+
 source $ZDOTDIR/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
+source $ZDOTDIR/plugins/zsh-autosuggestions-abbreviations-strategy/zsh-autosuggestions-abbreviations-strategy.zsh
 ZSH_AUTOSUGGEST_CLEAR_WIDGETS+=(bracketed-paste)
-ZSH_AUTOSUGGEST_STRATEGY=(history completion)
+ZSH_AUTOSUGGEST_STRATEGY=(abbreviations history completion)
+
+source $ZDOTDIR/plugins/fzf-tab/fzf-tab.zsh
 
 source $ZDOTDIR/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets regexp cursor)
