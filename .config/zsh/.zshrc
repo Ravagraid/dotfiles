@@ -3,18 +3,6 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
 fi
 
 ############################################################
-# oh-my-zsh ###########################################################
-
-plugins=(
-  aliases
-  archlinux
-  colored-man-pages
-  git
-  git-commit
-  z
-)
-
-############################################################
 # History/cache Config
 ############################################################
 
@@ -205,6 +193,9 @@ zstyle ':completion::complete:*' cache-path $XDG_CACHE_HOME/zsh/compcache
 zstyle ':completion:*:descriptions' format [%d]
 zstyle ':completion:*:manuals' separate-sections true
 zstyle ':fzf-tab:*' prefix ''
+
+# custom functions and completions
+fpath=($ZDOTDIR/fpath $fpath)
 
 # Enable cached completions, if found
 [[ -d $XDG_CACHE_HOME/zsh/fpath ]] || fpath=($XDG_CACHE_HOME/zsh/fpath $fpath)
