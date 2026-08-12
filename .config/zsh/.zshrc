@@ -11,7 +11,6 @@ plugins=(
   colored-man-pages
   git
   git-commit
-  gitfast
   z
 )
 
@@ -211,7 +210,8 @@ zstyle ':fzf-tab:*' prefix ''
 [[ -d $XDG_CACHE_HOME/zsh/fpath ]] || fpath=($XDG_CACHE_HOME/zsh/fpath $fpath)
 
 # more completions
-fpath=($ZDOTDIR/plugins/zsh-completions/src $ZDOTDIR/fpath $fpath)
+fpath=($ZDOTDIR/plugins/zsh-completions/src $ZDOTDIR/plugins/git-completion/src
+  $fpath)
 
 zmodload zsh/complist
 
