@@ -1,3 +1,8 @@
+autoload -Uz clear-screen-soft-bottom
+if ! [[ -v SSH_TTY || -v SUDO_USER ]]; then
+  clear-screen-soft-bottom
+fi
+
 if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
@@ -128,6 +133,7 @@ alias orphans='paru -Qtdq'
 alias coalmine='sudo paru -Rns $(paru -Qtdq)'
 alias list="paru -Qqe | fzf --preview 'paru -Qil {}' --height=97% --layout=reverse --bind 'enter:execute(paru -Qil {} | less)'"
 alias remove='paru -Rcs'
+alias clear='clear-screen-soft-bottom'
 
 ############################################################
 # functions
@@ -205,7 +211,7 @@ zstyle ':fzf-tab:*' prefix ''
 [[ -d $XDG_CACHE_HOME/zsh/fpath ]] || fpath=($XDG_CACHE_HOME/zsh/fpath $fpath)
 
 # more completions
-fpath=($ZDOTDIR/plugins/zsh-completions/src $ZDOTDIR/plugins/git-completion/src $ZDOTDIR/fpath $fpath)
+fpath=($ZDOTDIR/plugins/zsh-completions/src $ZDOTDIR/plugins/git-completion/src $fpath)
 
 zmodload zsh/complist
 

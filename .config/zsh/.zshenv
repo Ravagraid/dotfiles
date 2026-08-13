@@ -1,5 +1,7 @@
 zmodload -F zsh/files b:zf_ln b:zf_mkdir b:zf_rm
 
+fpath=($ZDOTDIR/fpath/ $fpath)
+
 export PAGER=less
 export LESS="--RAW-CONTROL-CHARS --ignore-case --hilite-unread --LONG-PROMPT --window=-4 --tabs=4 --mouse --wheel-lines=3"
 export READNULLCMD=$PAGER
