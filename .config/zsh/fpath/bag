@@ -14,14 +14,14 @@ else
 # use whole bag input as single search query
 # prefer rg over ag over grep
 if (( ${+commands[rg]} )); then
-    command rg --no-heading --line-number --smart-case --fixed-strings --color=always "$*"
+    command rg --hidden --no-heading --line-number --smart-case --fixed-strings --color=always "$*"
 elif (( ${+commands[ag]} )); then
     command ag --nogroup --color --silent "$*"
 else
     command grep --line-number --recursive --ignore-case --color=always --no-messages "$*"
-fi | fzf --no-sort --delimiter=: \
-         --preview=$preview_cmd \
-         --preview-window='right,50%,+{2}/2' \
-         --bind='enter:become($EDITOR {1} +{2})'
+fi | fzf  --no-sort --delimiter=: \
+          --preview=$preview_cmd \
+          --preview-window='right,50%,+{2}/2' \
+          --bind='enter:become($EDITOR {1} +{2})'
 
 # vim: ft=zsh
