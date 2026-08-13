@@ -71,6 +71,13 @@ pathprepend "$HOME/bin" "$HOME/sbin" "$HOME/.local/bin" "$HOME/local/bin" "$HOME
 MANPATH=$XDG_DATA_HOME/man:$MANPATH
 
 ############################################################
+# autoload
+############################################################
+
+#custom functions
+autoload -z bag
+
+############################################################
 # Aliases
 ############################################################
 
@@ -194,15 +201,11 @@ zstyle ':completion:*:descriptions' format [%d]
 zstyle ':completion:*:manuals' separate-sections true
 zstyle ':fzf-tab:*' prefix ''
 
-# custom functions and completions
-fpath=($ZDOTDIR/fpath $fpath)
-
 # Enable cached completions, if found
 [[ -d $XDG_CACHE_HOME/zsh/fpath ]] || fpath=($XDG_CACHE_HOME/zsh/fpath $fpath)
 
 # more completions
-fpath=($ZDOTDIR/plugins/zsh-completions/src $ZDOTDIR/plugins/git-completion/src
-  $fpath)
+fpath=($ZDOTDIR/plugins/zsh-completions/src $ZDOTDIR/plugins/git-completion/src $ZDOTDIR/fpath $fpath)
 
 zmodload zsh/complist
 
