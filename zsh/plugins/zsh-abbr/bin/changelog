@@ -1,0 +1,12 @@
+#!/usr/bin/env zsh
+
+main() {
+  [[ -n $('builtin' 'command' -v standard-changelog) ]] || {
+    printf "Requires standard-changelog\nhttps://github.com/conventional-changelog/conventional-changelog/tree/master/packages/standard-changelog\n"
+    return 1
+  }
+
+  'builtin' 'command' standard-changelog
+}
+
+main
