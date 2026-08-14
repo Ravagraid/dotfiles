@@ -1,7 +1,5 @@
 zmodload -F zsh/files b:zf_ln b:zf_mkdir b:zf_rm
 
-# fpath=($ZDOTDIR/fpath/ $fpath)
-
 export PAGER=less
 export LESS="--RAW-CONTROL-CHARS --ignore-case --hilite-unread --LONG-PROMPT --window=-4 --tabs=4 --mouse --wheel-lines=3"
 export READNULLCMD=$PAGER
@@ -33,6 +31,8 @@ if [[ -z $ZDOTDIR || -L $HOME/.zshenv ]]; then
 fi
 
 export DOTFILES=${ZDOTDIR:h}
+
+fpath=($ZDOTDIR/fpath/ $fpath)
 
 if ((${+commands[nvim]})); then
   export EDITOR=nvim
