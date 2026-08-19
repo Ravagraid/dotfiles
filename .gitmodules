@@ -31,3 +31,9 @@
 [submodule "tools/git-quick-stats"]
 	path = tools/git-quick-stats
 	url = https://github.com/git-quick-stats/git-quick-stats/
+[submodule "tmux/plugins/tmux-everforest"]
+	path = tmux/plugins/tmux-everforest
+	url = https://github.com/TanglingTreats/tmux-everforest
+[submodule "tmux/plugins/tmux-prefix-highlight"]
+	path = tmux/plugins/tmux-prefix-highlight
+	url = https://github.com/tmux-plugins/tmux-prefix-highlight/

@@ -1,3 +1,7 @@
+if ((${+commands[tmux]})) && [[ ! -v TMUX && ! -v SSH_TTY ]] && ((EUID != 0)) && ! tmux list-sessions &>/dev/null; then
+  exec tmux new-session
+fi
+
 autoload -Uz clear-screen-soft-bottom
 if ! [[ -v SSH_TTY || -v SUDO_USER ]]; then
   clear-screen-soft-bottom

@@ -12,9 +12,13 @@ return {
 		options = {
 			component_separators = '',
 			section_separators = { left = '', right = '' },
+			theme = 'everforest',
 		},
 		sections = {
-			lualine_a = { 'mode', 'branch' },
+			lualine_a = {
+				'mode',
+				'branch',
+			},
 			lualine_b = {
 				{ 'filename', path = 1 },
 				{ 'filesize' },
@@ -23,7 +27,11 @@ return {
 			},
 			lualine_c = { 'diagnostics', 'diff' },
 			lualine_x = {},
-			lualine_y = { 'location', 'progress', 'filetype' },
+			lualine_y = {
+				'location',
+				'progress',
+				'filetype',
+			},
 			lualine_z = {},
 		},
 	},
