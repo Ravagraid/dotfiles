@@ -48,13 +48,32 @@ unsetopt RM_STAR_SILENT
 # History/cache Config
 ############################################################
 
-HISTFILE="$XDG_CACHE_HOME/zsh/zsh_history"
+HISTFILE="$XDG_DATA_HOME/zsh/history"
 HISTSIZE=10000
 SAVEHIST=$HISTSIZE
 
 ############################################################
 # autoload
 ############################################################
+
+# Initialise colors
+autoload -Uz colors
+colors
+
+((${+aliases[run - help]})) && unalias run-help
+autoload -Uz run-help
+alias help=run-help
+
+autoload -Uz bracketed-paste-url-magic
+zle -N bracketed-paste bracketed-paste-url-magic
+
+autoload -Uz url-quote-magic
+zle -N self-insert url-quote-magic
+
+autoload -Uz up-line-or-beginning-search
+zle -N up-line-or-beginning-search
+autoload -Uz down-line-or-beginning-search
+zle -N down-line-or-beginning-search
 
 #custom functions
 autoload -z bag fgb
@@ -91,6 +110,17 @@ MANPATH=$XDG_DATA_HOME/man:$MANPATH
 ############################################################
 
 alias zshconfig='nvim $ZDOTDIR/.zshrc'
+
+# nvim
+((${+commands[nvim]})) && {
+  alias nv="nvim"
+  alias vi="nvim"
+  alias vim="nvim"
+}
+
+# Human file sizes
+((${+commands[df]})) && alias df="df --human-readable --print-type"
+((${+commands[du]})) && alias du="du --human-readable --total"
 
 # lsd
 if [[ -x "$(command -v lsd)" ]]; then

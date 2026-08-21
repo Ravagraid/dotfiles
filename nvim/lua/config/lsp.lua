@@ -109,10 +109,17 @@ vim.lsp.config('ts_ls', {
 	},
 })
 
+vim.lsp.config('tombi', {
+	cmd = { 'tombi', 'lsp' },
+	filetypes = { 'toml' },
+	root_markers = { 'tombi.toml', 'pyproject.toml', '.git' },
+})
+
 vim.lsp.enable({
 	'lua_ls',
 	'bashls',
 	'clangd',
 	'markdown_oxide',
 	'ts_ls',
+	'tombi',
 })
