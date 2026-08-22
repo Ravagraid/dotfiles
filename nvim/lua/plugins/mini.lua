@@ -5,7 +5,17 @@ return {
 		local miniclue = require('mini.clue')
 		-- Text editing
 		require('mini.comment').setup()
-		require('mini.move').setup()
+		require('mini.move').setup({
+			left = 'H',
+			right = 'L',
+			down = 'J',
+			up = 'K',
+
+			line_left = 'H',
+			line_right = 'L',
+			line_down = 'J',
+			line_up = 'K',
+		})
 		require('mini.pairs').setup({
 			mappings = {
 				['*'] = {
