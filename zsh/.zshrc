@@ -7,10 +7,6 @@ if ! [[ -v SSH_TTY || -v SUDO_USER ]]; then
   clear-screen-soft-bottom
 fi
 
-if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
-  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
-fi
-
 ############################################################
 # opts
 ############################################################
@@ -122,17 +118,22 @@ alias zshconfig='nvim $ZDOTDIR/.zshrc'
 ((${+commands[df]})) && alias df="df --human-readable --print-type"
 ((${+commands[du]})) && alias du="du --human-readable --total"
 
-# lsd
-if [[ -x "$(command -v lsd)" ]]; then
-  alias ls='lsd -F --group-dirs first'
-  alias ll='lsd --all --header --long --group-dirs first'
+# useful stuff
+((${+commands[grep]})) && alias grep="grep --color=auto --binary-files=without-match --devices=skip"
+((${+commands[tmux]})) && alias stmux="tmux new-session 'sudo --login'"
+((${+commands[wget]})) && alias wget="wget --hsts-file=$XDG_CACHE_HOME/wget-hsts"
+((${+commands[lsd]})) && {
+  alias ls='lsd -F --group-dirs first --hyperlink=auto'
+  alias ll='lsd --almost-all --header --long --group-dirs first'
   alias tree='lsd --tree'
-fi
+}
 
-# launch document/file/URL in default X application
-if [[ -x "$(command -v xdg-open)" ]]; then
-  alias open='runfree xdg-open'
-fi
+((${+commands[xdg - open]})) &&
+
+  # launch document/file/URL in default X application
+  if [[ -x "$(command -v xdg-open)" ]]; then
+    alias open='runfree xdg-open'
+  fi
 
 # launch document/file/URL in default PDF reader
 if [[ -x "$(command -v zathura)" ]]; then
@@ -266,9 +267,6 @@ fi
 ############################################################
 
 eval "$(pay-respects zsh)"
-
-source "$ZDOTDIR/plugins/powerlevel10k/powerlevel10k.zsh-theme"
-[[ ! -f ~/.config/zsh/.p10k.zsh ]] || source ~/.config/zsh/.p10k.zsh
 
 source $ZDOTDIR/plugins/zsh-autopair/autopair.zsh
 
