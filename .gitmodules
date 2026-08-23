@@ -34,6 +34,3 @@
 [submodule "tmux/plugins/tmux-prefix-highlight"]
 	path = tmux/plugins/tmux-prefix-highlight
 	url = https://github.com/tmux-plugins/tmux-prefix-highlight/
-[submodule "zsh/plugins/spaceship-prompt"]
-	path = zsh/plugins/spaceship-prompt
-	url = https://github.com/spaceship-prompt/spaceship-prompt.git

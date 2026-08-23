@@ -44,3 +44,4 @@ fi
 
 export TERMINAL=kitty
 export FZF_DEFAULT_OPTS="--ansi --height=50% --tmux=bottom,50%,border-native --border=top --layout=reverse-list"
+export STARSHIP_CONFIG="$ZDOTDIR/starship.toml"

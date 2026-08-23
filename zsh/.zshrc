@@ -266,7 +266,7 @@ fi
 # integrations
 ############################################################
 
-source $ZDOTDIR/plugins/spaceship-prompt/spaceship.zsh
+eval "$(starship init zsh)"
 
 source $ZDOTDIR/plugins/zsh-autopair/autopair.zsh
 
