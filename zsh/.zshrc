@@ -266,7 +266,7 @@ fi
 # integrations
 ############################################################
 
-eval "$(pay-respects zsh)"
+source $ZDOTDIR/plugins/spaceship-prompt/spaceship.zsh
 
 source $ZDOTDIR/plugins/zsh-autopair/autopair.zsh
 
