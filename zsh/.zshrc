@@ -246,7 +246,7 @@ zstyle ':fzf-tab:*' prefix ''
 [[ -d $XDG_CACHE_HOME/zsh/fpath ]] || fpath=($XDG_CACHE_HOME/zsh/fpath $fpath)
 
 # more completions
-fpath=($ZDOTDIR/plugins/zsh-completions/src $ZDOTDIR/plugins/git-completion/src $fpath)
+fpath=($ZDOTDIR/plugins/completions/src $ZDOTDIR/plugins/git-completion/src $fpath)
 
 # git-extras completions
 
@@ -268,16 +268,16 @@ fi
 
 eval "$(starship init zsh)"
 
-source $ZDOTDIR/plugins/zsh-autopair/autopair.zsh
+source $ZDOTDIR/plugins/autopair/autopair.zsh
 
-source $ZDOTDIR/plugins/zsh-abbr/zsh-abbr.zsh
+source $ZDOTDIR/plugins/abbr/zsh-abbr.zsh
 
-source $ZDOTDIR/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
-source $ZDOTDIR/plugins/zsh-autosuggestions-abbreviations-strategy/zsh-autosuggestions-abbreviations-strategy.zsh
+source $ZDOTDIR/plugins/autosuggestions/zsh-autosuggestions.zsh
+source $ZDOTDIR/plugins/autosuggestions-abbreviations-strategy/zsh-autosuggestions-abbreviations-strategy.zsh
 ZSH_AUTOSUGGEST_CLEAR_WIDGETS+=(bracketed-paste)
 ZSH_AUTOSUGGEST_STRATEGY=(abbreviations history completion)
 
 source $ZDOTDIR/plugins/fzf-tab/fzf-tab.zsh
 
-source $ZDOTDIR/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source $ZDOTDIR/plugins/syntax-highlighting/zsh-syntax-highlighting.zsh
 ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets regexp cursor)
