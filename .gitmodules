@@ -34,3 +34,9 @@
 [submodule "tmux/plugins/tmux-prefix-highlight"]
 	path = tmux/plugins/tmux-prefix-highlight
 	url = https://github.com/tmux-plugins/tmux-prefix-highlight/
+[submodule "yazi/yazi-rs-plugins"]
+	path = yazi/yazi-rs-plugins
+	url = https://github.com/yazi-rs/plugins
+[submodule "yazi/plugins/githead.yazi"]
+	path = yazi/plugins/githead.yazi
+	url = https://github.com/llanosrocas/githead.yazi
