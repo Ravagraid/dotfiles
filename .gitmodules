@@ -1,27 +1,3 @@
-[submodule ".config/zsh/plugins/zsh-syntax-highlighting"]
-	path = .config/zsh/plugins/zsh-syntax-highlighting
-	url = https://github.com/zsh-users/zsh-syntax-highlighting.git
-[submodule ".config/zsh/plugins/zsh-autopair"]
-	path = .config/zsh/plugins/zsh-autopair
-	url = https://github.com/hlissner/zsh-autopair
-[submodule ".config/zsh/plugins/zsh-autosuggestions"]
-	path = .config/zsh/plugins/zsh-autosuggestions
-	url = https://github.com/zsh-users/zsh-autosuggestions
-[submodule ".config/zsh/plugins/zsh-completions"]
-	path = .config/zsh/plugins/zsh-completions
-	url = https://github.com/zsh-users/zsh-completions.git
-[submodule ".config/zsh/plugins/zsh-abbr"]
-	path = .config/zsh/plugins/zsh-abbr
-	url = https://github.com/olets/zsh-abbr
-[submodule ".config/zsh/plugins/zsh-autosuggestions-abbreviations-strategy"]
-	path = .config/zsh/plugins/zsh-autosuggestions-abbreviations-strategy
-	url = https://github.com/olets/zsh-autosuggestions-abbreviations-strategy/
-[submodule ".config/zsh/plugins/fzf-tab"]
-	path = .config/zsh/plugins/fzf-tab
-	url = https://github.com/Aloxaf/fzf-tab/
-[submodule ".config/zsh/plugins/git-completion"]
-	path = .config/zsh/plugins/git-completion
-	url = https://github.com/felipec/git-completion/
 [submodule "tools/git-extras"]
 	path = tools/git-extras
 	url = https://github.com/tj/git-extras.git
@@ -40,3 +16,18 @@
 [submodule "yazi/plugins/githead.yazi"]
 	path = yazi/plugins/githead.yazi
 	url = https://github.com/llanosrocas/githead.yazi
+[submodule "zsh/plugins/abbr"]
+	path = zsh/plugins/abbr
+	url = https://github.com/olets/zsh-abbr
+[submodule "zsh/plugins/autopair"]
+	path = zsh/plugins/autopair
+	url = https://github.com/hlissner/zsh-autopair
+[submodule "zsh/plugins/autosuggestions"]
+	path = zsh/plugins/autosuggestions
+	url = https://github.com/zsh-users/zsh-autosuggestions
+[submodule "zsh/plugins/autosuggestions-abbreviations-strategy"]
+	path = zsh/plugins/autosuggestions-abbreviations-strategy
+	url = https://github.com/olets/zsh-autosuggestions-abbreviations-strategy
+[submodule "zsh/plugins/completions"]
+	path = zsh/plugins/completions
+	url = https://github.com/zsh-users/zsh-completions
