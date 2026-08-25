@@ -29,6 +29,7 @@ return {
 			'systemdlint',
 			'tinymist',
 			'typstyle',
+			'tombi',
 		},
 		auto_update = true,
 		start_delay = 3000,
