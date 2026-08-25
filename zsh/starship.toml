@@ -5,7 +5,7 @@ add_newline = true
 continuation_prompt = "[   ··· ](dimmed gray)"
 
 format = """
-[╭─](gray) $directory$git_branch$git_state$git_status$git_metrics$fill$time
+[╭─](gray) $os$directory$git_branch$git_state$git_status$git_metrics$fill$time
 [╰─](gray) $container$env_var$shlvl$status$sudo$hostname$username$localip$jobs$character"""
 
 right_format = """$cmd_duration$python$nodejs$deno$rust$golang$lua$c$java$ruby$swift$pixi$conda$nix_shell$package$docker_context$battery"""
@@ -78,11 +78,11 @@ format = "[ $duration ]($style)"
 style = "yellow"
 min_time = 2_000
 
-[time]
-disabled = false
-format = "[$time]($style)"
-time_format = "%a %R"
-style = "dimmed white"
+# [time]
+# disabled = false
+# format = "[$time]($style)"
+# time_format = "%a %R"
+# style = "dimmed white"
 
 [env_var.VIMSHELL]
 format = "[$env_value]($style) "

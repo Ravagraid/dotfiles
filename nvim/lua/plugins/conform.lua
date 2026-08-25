@@ -19,6 +19,7 @@ return {
 				bash = { 'shfmt' },
 				sh = { 'shfmt' },
 				kdl = { 'kdlfmt' },
+				toml = { 'tombi' },
 
 				-- typesetting
 				typst = { 'typstyle' },
