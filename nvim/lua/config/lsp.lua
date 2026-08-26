@@ -58,10 +58,10 @@ vim.lsp.config('lua_ls', {
 	},
 })
 
-vim.lsp.config.bashls = {
+vim.lsp.config('bashls', {
 	cmd = { 'bash-language-server', 'start' },
 	filetypes = { 'bash', 'sh', 'zsh' },
-}
+})
 
 vim.lsp.config('clangd', {
 	cmd = {
