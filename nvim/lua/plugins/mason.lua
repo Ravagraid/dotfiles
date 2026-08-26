@@ -14,8 +14,6 @@ return {
 	},
 	opts = {
 		ensure_installed = {
-			'bash-language-server',
-			'beautysh',
 			'clang-format',
 			'clangd',
 			'json-lsp',

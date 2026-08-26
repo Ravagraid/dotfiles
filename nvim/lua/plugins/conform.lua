@@ -15,9 +15,9 @@ return {
 				typescript = { 'prettier' },
 
 				-- config
-				zsh = { 'beautysh' },
-				bash = { 'shfmt' },
-				sh = { 'shfmt' },
+				zsh = { 'shuck' },
+				bash = { 'shuck' },
+				sh = { 'shuck' },
 				kdl = { 'kdlfmt' },
 				toml = { 'tombi' },
 

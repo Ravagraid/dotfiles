@@ -58,11 +58,6 @@ vim.lsp.config('lua_ls', {
 	},
 })
 
-vim.lsp.config('bashls', {
-	cmd = { 'bash-language-server', 'start' },
-	filetypes = { 'bash', 'sh', 'zsh' },
-})
-
 vim.lsp.config('clangd', {
 	cmd = {
 		'clangd',
@@ -109,6 +104,12 @@ vim.lsp.config('ts_ls', {
 	},
 })
 
+vim.lsp.config('shuck', {
+	cmd = { 'shuck', 'server' },
+	filetypes = { 'sh', 'bash', 'zsh', 'ksh' },
+	root_markers = { '.shuck.toml', 'shuck.toml', '.git' },
+})
+
 vim.lsp.config('tombi', {
 	cmd = { 'tombi', 'lsp' },
 	filetypes = { 'toml' },
@@ -116,10 +117,10 @@ vim.lsp.config('tombi', {
 })
 
 vim.lsp.enable({
-	'lua_ls',
-	'bashls',
 	'clangd',
+	'lua_ls',
 	'markdown_oxide',
+	'shuck',
 	'ts_ls',
 	'tombi',
 })
