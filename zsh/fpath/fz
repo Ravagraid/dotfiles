@@ -1,0 +1,15 @@
+# z via fzf
+
+emulate -L zsh
+
+local destination=$(
+	z -l "$*" |
+		sed 's/^[0-9. ]*//' |
+		fzf --no-sort --tac --filepath-word --scheme=path --query="$*" --preview='LC_COLLATE=C ls -l -v --almost-all --group-directories-first --classify --color=always --human-readable {}'
+)
+
+if [[ $destination != "" ]]; then
+	cd $destination
+fi
+
+# vim: ft=zsh
