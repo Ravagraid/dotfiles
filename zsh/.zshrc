@@ -1,10 +1,10 @@
 if ((${+commands[tmux]})) && [[ ! -v TMUX && ! -v SSH_TTY ]] && ((EUID != 0)) && ! tmux list-sessions &>/dev/null; then
-  exec tmux new-session
+	exec tmux new-session
 fi
 
 autoload -Uz clear-screen-soft-bottom
 if ! [[ -v SSH_TTY || -v SUDO_USER ]]; then
-  clear-screen-soft-bottom
+	clear-screen-soft-bottom
 fi
 
 ############################################################
@@ -72,7 +72,7 @@ autoload -Uz down-line-or-beginning-search
 zle -N down-line-or-beginning-search
 
 #custom functions
-autoload -z bag fgb
+autoload -z bag fgb fgd fgl
 
 ############################################################
 # add bin to Path
@@ -80,20 +80,20 @@ autoload -z bag fgb
 
 # Add directories to end of path if they exist and not in path
 function pathappend() {
-  for ARG in "$@"; do
-    if [ -d "$ARG" ] && [[ ":$PATH:" != *":$ARG:"* ]]; then
-      PATH="${PATH:+"$PATH:"}$ARG"
-    fi
-  done
+	for ARG in "$@"; do
+		if [ -d "$ARG" ] && [[ ":$PATH:" != *":$ARG:"* ]]; then
+			PATH="${PATH:+"$PATH:"}$ARG"
+		fi
+	done
 }
 
 # add directories to beginning of path if they exist and not in path
 function pathprepend() {
-  for ARG in "$@"; do
-    if [ -d "$ARG" ] && [[ ":$PATH:" != *":$ARG:"* ]]; then
-      PATH="$ARG${PATH:+":$PATH:"}"
-    fi
-  done
+	for ARG in "$@"; do
+		if [ -d "$ARG" ] && [[ ":$PATH:" != *":$ARG:"* ]]; then
+			PATH="$ARG${PATH:+":$PATH:"}"
+		fi
+	done
 }
 
 # Add most common bin paths inside home folder
@@ -109,9 +109,9 @@ alias zshconfig='nvim $ZDOTDIR/.zshrc'
 
 # nvim
 ((${+commands[nvim]})) && {
-  alias nv="nvim"
-  alias vi="nvim"
-  alias vim="nvim"
+	alias nv="nvim"
+	alias vi="nvim"
+	alias vim="nvim"
 }
 
 # Human file sizes
@@ -123,40 +123,39 @@ alias zshconfig='nvim $ZDOTDIR/.zshrc'
 ((${+commands[tmux]})) && alias stmux="tmux new-session 'sudo --login'"
 ((${+commands[wget]})) && alias wget="wget --hsts-file=$XDG_CACHE_HOME/wget-hsts"
 ((${+commands[lsd]})) && {
-  alias ls='lsd -F --group-dirs first --hyperlink=auto'
-  alias ll='lsd --almost-all --header --long --group-dirs first'
-  alias tree='lsd --tree'
+	alias ls='lsd -F --group-dirs first --hyperlink=auto'
+	alias ll='lsd --almost-all --header --long --group-dirs first'
+	alias tree='lsd --tree'
 }
 
 ((${+commands[xdg - open]})) &&
-
-  # launch document/file/URL in default X application
-  if [[ -x "$(command -v xdg-open)" ]]; then
-    alias open='runfree xdg-open'
-  fi
+	# launch document/file/URL in default X application
+	if [[ -x "$(command -v xdg-open)" ]]; then
+		alias open='runfree xdg-open'
+	fi
 
 # launch document/file/URL in default PDF reader
 if [[ -x "$(command -v zathura)" ]]; then
-  alias pdf='runfree zathura'
+	alias pdf='runfree zathura'
 fi
 
 # bat > cat
 if [[ -x "$(command -v bat)" ]]; then
-  alias cat='bat'
+	alias cat='bat'
 fi
 
 # FZF customisation
 if [[ -x "$(command -v fzf)" ]]; then
-  alias fzf='fzf --preview "bat --style=numbers --color=always --line-range :500 {}"'
-  # fuzzy find files, preview and launch in editor
-  if [[ -x "$(command -v xdg-open)" ]]; then
-    alias preview='open $(fzf --info=inline --query="${@}")'
-  fi
+	alias fzf='fzf --preview "bat --style=numbers --color=always --line-range :500 {}"'
+	# fuzzy find files, preview and launch in editor
+	if [[ -x "$(command -v xdg-open)" ]]; then
+		alias preview='open $(fzf --info=inline --query="${@}")'
+	fi
 fi
 
 # local IP addresses
 if [[ -x "$(command -v ip)" ]]; then
-  alias iploc="ip -br -c a"
+	alias iploc="ip -br -c a"
 fi
 
 # public IP information
@@ -176,18 +175,18 @@ alias clear='clear-screen-soft-bottom'
 
 # run, disown, and detach from terminal
 function runfree() {
-  "$@" >/dev/null 2>&1 &
-  disown
+	"$@" >/dev/null 2>&1 &
+	disown
 }
 
 # copy file with progress bar
 function cpp() {
-  if [[ -x "$(command -v rsync)" ]]; then
-    rsync -ah --info=progress2 "${1}" "${2}"
-  else
-    set -e
-    strace -q -ewrite cp -- "${1}" "${2}" 2>&1 |
-      awk '{
+	if [[ -x "$(command -v rsync)" ]]; then
+		rsync -ah --info=progress2 "${1}" "${2}"
+	else
+		set -e
+		strace -q -ewrite cp -- "${1}" "${2}" 2>&1 |
+			awk '{
           count += $NF
           if (count % 10 == 0) {
             percent = count / total_size * 100
@@ -201,30 +200,30 @@ function cpp() {
             }
         }
     END { print "" }' total_size=$(stat -c '%s' "${1}") count = 0
-  fi
+	fi
 }
 
 # copy and go to dir
 function cpg() {
-  if [[ -d "$2" ]]; then
-    cp "$1" "$2" && cd "$2"
-  else
-    cp "$1" "$2"
-  fi
+	if [[ -d "$2" ]]; then
+		cp "$1" "$2" && cd "$2"
+	else
+		cp "$1" "$2"
+	fi
 }
 
 # move and go to dir
 function mvg() {
-  if [[ -d "$2" ]]; then
-    mv "$1" "$2" && cd "$2"
-  else
-    mv "$1" "$2"
-  fi
+	if [[ -d "$2" ]]; then
+		mv "$1" "$2" && cd "$2"
+	else
+		mv "$1" "$2"
+	fi
 }
 
 # Make and go to dir
 function mdg() {
-  mkdir -p "$@" && cd "$@"
+	mkdir -p "$@" && cd "$@"
 }
 
 ############################################################
@@ -249,24 +248,30 @@ zstyle ':fzf-tab:*' prefix ''
 fpath=($ZDOTDIR/plugins/completions/src $ZDOTDIR/plugins/git-completion/src $fpath)
 
 # git-extras completions
+source $DOTFILES/tools/git-extras/etc/git-extras-completion.zsh
 
 zmodload zsh/complist
 
 autoload -Uz compinit
 if [[ -n $XDG_CACHE_HOME/zsh/compdump(#qN.mh+20) ]]; then
-  compinit -u -d $XDG_CACHE_HOME/zsh/compdump
-  {
-    autoload -Uz zrecompile
-    zrecompile -pq $XDG_CACHE_HOME/zsh/compdump
-  } &|
+	compinit -u -d $XDG_CACHE_HOME/zsh/compdump
+	{
+		autoload -Uz zrecompile
+		zrecompile -pq $XDG_CACHE_HOME/zsh/compdump
+	} &|
 else
-  compinit -u -C -d $XDG_CACHE_HOME/zsh/compdump
+	compinit -u -C -d $XDG_CACHE_HOME/zsh/compdump
 fi
 ############################################################
 # integrations
 ############################################################
 
 eval "$(starship init zsh)"
+
+source $ZDOTDIR/plugins/z/zsh-z.plugin.zsh
+ZSHZ_DATA=$XDG_CACHE_HOME/zsh/z/
+ZSHZ_UNCOMMON=1
+ZSHZ_CASE=smart
 
 source $ZDOTDIR/plugins/autopair/autopair.zsh
 
