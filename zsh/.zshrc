@@ -27,9 +27,9 @@ setopt HIST_NO_STORE
 setopt CORRECT_ALL
 setopt AUTO_CD
 setopt AUTO_PARAM_SLASH
-setopt LIST_TYPES
 setopt COMPLETE_IN_WORD
 setopt ALWAYS_TO_END
+setopt LIST_TYPES
 setopt LONG_LIST_JOBS
 setopt AUTO_RESUME
 setopt NOTIFY
@@ -44,7 +44,7 @@ unsetopt RM_STAR_SILENT
 # History/cache Config
 ############################################################
 
-HISTFILE='$XDG_DATA_HOME/zsh/history'
+HISTFILE="$XDG_DATA_HOME/zsh/history"
 HISTSIZE=10000
 SAVEHIST=$HISTSIZE
 
@@ -81,8 +81,8 @@ autoload -z bag fgb fgd fgl fz
 # Add directories to end of path if they exist and not in path
 function pathappend() {
     for ARG in '$@'; do
-        if [ -d '$ARG' ] && [[ ':$PATH:' != *':$ARG:'* ]]; then
-            PATH='${PATH:+'$PATH:'}$ARG'
+        if [ -d "$ARG" ] && [[ ":$PATH:" != *":$ARG:"* ]]; then
+            PATH="${PATH:+"$PATH:"}$ARG"
         fi
     done
 }
@@ -90,14 +90,14 @@ function pathappend() {
 # add directories to beginning of path if they exist and not in path
 function pathprepend() {
     for ARG in '$@'; do
-        if [ -d '$ARG' ] && [[ ':$PATH:' != *':$ARG:'* ]]; then
-            PATH='$ARG${PATH:+':$PATH:'}'
+        if [ -d "$ARG" ] && [[ ":$PATH:" != *":$ARG:"* ]]; then
+            PATH="$ARG${PATH:+":$PATH:"}"
         fi
     done
 }
 
 # Add most common bin paths inside home folder
-pathprepend '$HOME/bin' '$HOME/sbin' '$HOME/.local/bin' '$HOME/local/bin' '$HOME/.bin'
+pathprepend "$HOME/bin" "$HOME/sbin" "$HOME/.local/bin" "$HOME/local/bin" "$HOME/.bin"
 
 MANPATH=$XDG_DATA_HOME/man:$MANPATH
 
@@ -126,7 +126,13 @@ if ((${+commands[dircolors]})); then
     ((${+commands[dd]})) && alias dd='dd status=progress'
     ((${+commands[grep]})) && alias grep='grep --color=auto --binary-files=without-match --devices=skip'
     (($+commands[diff])) && alias diff='diff --color=auto --new-file --text --recursive --unified'
-else
+    ((${+commands[mkdir]})) && alias mkdir="mkdir --parents --verbose"
+    ((${+commands[cp]})) && alias cp="cp --verbose --reflink=auto"
+    ((${+commands[mv]} )) && alias mv="mv --verbose"
+    ((${+commands[rm]})) && alias rm="rm -I --preserve-root=all"
+    ((${+commands[chmod]})) && alias chmod="chmod --preserve-root --changes"
+    ((${+commands[chown]})) && alias chown="chown --preserve-root --changes"
+    ((${+commands[chgrp]})) && alias chgrp="chgrp --preserve-root --changes"
 fi
 
 
@@ -143,26 +149,26 @@ fi
 ((${+commands[xdg-open]})) && alias open='runfree xdg-open'
 
 # launch document/file/URL in default PDF reader
-if [[ -x '$(command -v zathura)' ]]; then
+if [[ -x "$(command -v zathura)" ]]; then
     alias pdf='runfree zathura'
 fi
 
 # bat > cat
-if [[ -x '$(command -v bat)' ]]; then
+if [[ -x "$(command -v bat)" ]]; then
     alias cat='bat'
 fi
 
 # FZF customisation
-if [[ -x '$(command -v fzf)' ]]; then
+if [[ -x "$(command -v fzf)" ]]; then
     alias fzf='fzf --preview 'bat --style=numbers --color=always --line-range :500 {}''
     # fuzzy find files, preview and launch in editor
-    if [[ -x '$(command -v xdg-open)' ]]; then
+    if [[ -x "$(command -v xdg-open)" ]]; then
         alias preview='open $(fzf --info=inline --query='${@}')'
     fi
 fi
 
 # local IP addresses
-if [[ -x '$(command -v ip)' ]]; then
+if [[ -x "$(command -v ip)" ]]; then
     alias iploc='ip -br -c a'
 fi
 
@@ -191,11 +197,11 @@ function runfree() {
 
 # copy file with progress bar
 function cpp() {
-    if [[ -x '$(command -v rsync)' ]]; then
-        rsync -ah --info=progress2 '${1}' '${2}'
+    if [[ -x "$(command -v rsync)" ]]; then
+        rsync -ah --info=progress2 "${1}" "${2}"
     else
         set -e
-        strace -q -ewrite cp -- '${1}' '${2}' 2>&1 |
+        strace -q -ewrite cp -- "${1}" "${2}" 2>&1 |
         awk '{
           count += $NF
           if (count % 10 == 0) {
@@ -209,25 +215,25 @@ function cpp() {
                 printf ']\r'
             }
         }
-    END { print '' }' total_size=$(stat -c '%s' '${1}') count = 0
+    END { print '' }' total_size=$(stat -c '%s' "${1}") count = 0
     fi
 }
 
 # copy and go to dir
 function cpg() {
-    if [[ -d '$2' ]]; then
-        cp '$1' '$2' && cd '$2'
+    if [[ -d "$2" ]]; then
+        cp "$1" "$2" && cd "$2"
     else
-        cp '$1' '$2'
+        cp "$1" "$2"
     fi
 }
 
 # move and go to dir
 function mvg() {
-    if [[ -d '$2' ]]; then
-        mv '$1' '$2' && cd '$2'
+    if [[ -d "$2" ]]; then
+        mv "$1" "$2" && cd "$2"
     else
-        mv '$1' '$2'
+        mv "$1" "$2"
     fi
 }
 
