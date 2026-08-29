@@ -72,7 +72,7 @@ autoload -Uz down-line-or-beginning-search
 zle -N down-line-or-beginning-search
 
 #custom functions
-autoload -z bag fgb fgd fgl fz
+autoload -z bag fgb fgd fgl fz wrap-sudo
 
 ############################################################
 # add bin to Path
