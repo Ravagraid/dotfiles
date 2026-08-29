@@ -144,6 +144,7 @@ fi
     alias ll='lsd --almost-all --header --long --group-dirs first'
     alias tree='lsd --tree'
 }
+alias spark='$DOTFILES/tools/spark/spark'
 
 # # launch document/file/URL in default X application
 ((${+commands[xdg-open]})) && alias open='runfree xdg-open'
@@ -181,7 +182,7 @@ alias pwd=' pwd'
 alias exit=' exit'
 alias orphans=' paru -Qtdq'
 alias coalmine=' sudo paru -Rns $(paru -Qtdq)'
-alias list=' paru -Qqe | fzf --preview 'paru -Qil {}' --height=97% --layout=reverse --bind 'enter:execute(paru -Qil {} | less)''
+alias list='paru -Qqe | fzf --preview "paru -Qil {}" --height=97% --layout=reverse --bind 'enter:execute(paru -Qil {} | less)''
 alias remove='paru -Rcs'
 alias clear=' clear-screen-soft-bottom'
 
@@ -317,10 +318,13 @@ ZSHZ_CASE=smart
 
 source $ZDOTDIR/plugins/autopair/autopair.zsh
 
+ABBR_USER_ABBREVIATIONS_FILE=$ZDOTDIR/plugins/abbreviations-store
 source $ZDOTDIR/plugins/abbr/zsh-abbr.zsh
+MANPATH=$ZDOTDIR/plugins/abbr/man:$MANPATH
 
 source $ZDOTDIR/plugins/autosuggestions/zsh-autosuggestions.zsh
 source $ZDOTDIR/plugins/autosuggestions-abbreviations-strategy/zsh-autosuggestions-abbreviations-strategy.zsh
+ZSH_AUTOSUGGEST_MANUAL_REBIND=1
 ZSH_AUTOSUGGEST_CLEAR_WIDGETS+=(bracketed-paste)
 ZSH_AUTOSUGGEST_STRATEGY=(abbreviations history completion)
 
@@ -328,3 +332,5 @@ source $ZDOTDIR/plugins/fzf-tab/fzf-tab.zsh
 
 source $ZDOTDIR/plugins/syntax-highlighting/zsh-syntax-highlighting.zsh
 ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets regexp cursor)
+typeset -A ZSH_HIGHLIGHT_REGEXP
+ZSH_HIGHLIGHT_REGEXP+=('^[[:blank:][:space:]]*('${(j:|:)${(Qk)ABBR_REGULAR_USER_ABBREVIATIONS}}')$' 'fg=blue')

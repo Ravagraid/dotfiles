@@ -43,3 +43,9 @@
 [submodule "zsh/plugins/z"]
 	path = zsh/plugins/z
 	url = https://github.com/agkozak/zsh-z/
+[submodule "tools/spark"]
+	path = tools/spark
+	url = https://github.com/holman/spark
+[submodule "tools/diff-so-fancy"]
+	path = tools/diff-so-fancy
+	url = https://github.com/so-fancy/diff-so-fancy
