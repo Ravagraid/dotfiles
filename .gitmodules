@@ -49,3 +49,6 @@
 [submodule "tools/diff-so-fancy"]
 	path = tools/diff-so-fancy
 	url = https://github.com/so-fancy/diff-so-fancy
+[submodule "tools/fzf"]
+	path = tools/fzf
+	url = https://github.com/junegunn/fzf
