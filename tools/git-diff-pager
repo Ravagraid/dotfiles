@@ -1,0 +1,9 @@
+#!/usr/bin/env zsh
+
+if ((${+commands[delta]})); then
+    exec delta
+elif ((${+commands[diff-so-fancy]})); then
+    diff-so-fancy | exec less --quit-if-one-screen
+else
+    exec less --quit-if-one-screen
+fi
