@@ -116,11 +116,22 @@ vim.lsp.config('tombi', {
 	root_markers = { 'tombi.toml', 'pyproject.toml', '.git' },
 })
 
+vim.lsp.config('tinymist', {
+	cmd = { 'tinymist' },
+	filetypes = { 'typst' },
+	settings = {
+		formatterMode = 'typstyle',
+		formatterIndentSize = 4,
+		formatterPrintWidth = 80,
+	},
+})
+
 vim.lsp.enable({
 	'clangd',
 	'lua_ls',
 	'markdown_oxide',
 	'shuck',
+	'tinymist',
 	'ts_ls',
 	'tombi',
 })
