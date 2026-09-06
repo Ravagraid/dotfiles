@@ -110,6 +110,11 @@ vim.lsp.config('shuck', {
 	root_markers = { '.shuck.toml', 'shuck.toml', '.git' },
 })
 
+vim.lsp.config('systemd-lsp', {
+	cmd = { 'systemd-lsp' },
+	filetypes = { 'systemd' },
+})
+
 vim.lsp.config('tombi', {
 	cmd = { 'tombi', 'lsp' },
 	filetypes = { 'toml' },
@@ -126,11 +131,21 @@ vim.lsp.config('tinymist', {
 	},
 })
 
+vim.lsp.config('vscode-json-language-server', {
+	cmd = { 'vscode-json-language-server', '--stdio' },
+	filetypes = { 'json' },
+	init_options = {
+		provideFormatter = true,
+	},
+})
+
 vim.lsp.enable({
 	'clangd',
+	'jsonls',
 	'lua_ls',
 	'markdown_oxide',
 	'shuck',
+	'systemd-lsp',
 	'tinymist',
 	'ts_ls',
 	'tombi',
