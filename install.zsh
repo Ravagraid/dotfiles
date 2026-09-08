@@ -47,3 +47,11 @@ zf_ln -sfn $SCRIPT_DIR/nvim/init.lua $XDG_CONFIG_HOME/nvim/init.lua
 zf_ln -sfn $SCRIPT_DIR/nvim/lua $XDG_CONFIG_HOME/nvim/lua
 zf_ln -sfn $SCRIPT_DIR/nvim/.stylua.toml $XDG_CONFIG_HOME/nvim/.stylua.toml
 zf_ln -sfn $SCRIPT_DIR/tmux $XDG_CONFIG_HOME/tmux
+zf_ln -sfn $SCRIPT_DIR/tombi/tombi.toml $XDG_CONFIG_HOME/tombi/tombi.toml
+zf_ln -sfn $SCRIPT_DIR/yazi/init.lua $XDG_CONFIG_HOME/yazi/init.lua
+zf_ln -sfn $SCRIPT_DIR/yazi/yazi.toml $XDG_CONFIG_HOME/yazi/yazi.toml
+zf_ln -sfn $SCRIPT_DIR/yazi/theme.toml $XDG_CONFIG_HOME/yazi/theme.toml
+zf_ln -sfn $SCRIPT_DIR/yazi/package.toml $XDG_CONFIG_HOME/yazi/package.toml
+zf_ln -sfn $SCRIPT_DIR/yazi/flavors $XDG_CONFIG_HOME/yazi/flavors
+zf_ln -sfn $SCRIPT_DIR/yazi/plugins $XDG_CONFIG_HOME/yazi/plugins
+print " ...done!"
