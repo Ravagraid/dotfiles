@@ -240,7 +240,7 @@ function mvg() {
 
 # Make and go to dir
 function mdg() {
-    mkdir -p '$@' && cd '$@'
+    mkdir -p "$@" && cd "$@"
 }
 
 ############################################################

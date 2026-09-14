@@ -1,0 +1,6 @@
+# All true binaries should not be modified
+*.png binary
+*.jpg binary
+*.gif binary
+
+# vi: ft=gitattributes
