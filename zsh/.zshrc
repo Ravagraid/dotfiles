@@ -270,7 +270,7 @@ zstyle ':completion:*:functions' ignored-patterns '_*'
 zstyle ':completion:*:git-*:*:heads*' ignored-patterns '(FETCH_|ORIG_|MERGE_|*/|)HEAD'
 zstyle ':completion:*:*:(vi|vim|nvim|nv|bat|cat|less):*:*' ignored-patterns '*.zwc'
 zstyle ':completion:*:parameters'ignored-patterns \
-    '_(p9k|_p9k|POWERLEVEL9K|gitstatus|GITSTATUS|zsh_highlight|ZSH_HIGHLIGHT|zsh_autosuggest|ZSH_AUTOSUGGEST|abbr|ABBR|ftb|FTB)*'
+    '_(p9k|_p9k|POWERLEVEL9K|gitstatus|GITSTATUS|zsh_highlight|ZSH_HIGHLIGHT|zsh_autosuggest|ZSH_AUTOSUGGEST|ftb|FTB)*'
 
 # Enable cached completions, if found
 [[ -d $XDG_CACHE_HOME/zsh/fpath ]] || fpath=($XDG_CACHE_HOME/zsh/fpath $fpath)
@@ -318,15 +318,10 @@ ZSHZ_CASE=smart
 
 source $ZDOTDIR/plugins/autopair/autopair.zsh
 
-ABBR_USER_ABBREVIATIONS_FILE=$ZDOTDIR/plugins/abbreviations-store
-source $ZDOTDIR/plugins/abbr/zsh-abbr.zsh
-MANPATH=$ZDOTDIR/plugins/abbr/man:$MANPATH
-
 source $ZDOTDIR/plugins/autosuggestions/zsh-autosuggestions.zsh
-source $ZDOTDIR/plugins/autosuggestions-abbreviations-strategy/zsh-autosuggestions-abbreviations-strategy.zsh
 ZSH_AUTOSUGGEST_MANUAL_REBIND=1
 ZSH_AUTOSUGGEST_CLEAR_WIDGETS+=(bracketed-paste)
-ZSH_AUTOSUGGEST_STRATEGY=(abbreviations history completion)
+ZSH_AUTOSUGGEST_STRATEGY=(history completion)
 
 source $ZDOTDIR/plugins/fzf-tab/fzf-tab.zsh
 

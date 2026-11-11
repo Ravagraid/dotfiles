@@ -16,18 +16,12 @@
 [submodule "yazi/plugins/githead.yazi"]
 	path = yazi/plugins/githead.yazi
 	url = https://github.com/llanosrocas/githead.yazi
-[submodule "zsh/plugins/abbr"]
-	path = zsh/plugins/abbr
-	url = https://github.com/olets/zsh-abbr
 [submodule "zsh/plugins/autopair"]
 	path = zsh/plugins/autopair
 	url = https://github.com/hlissner/zsh-autopair
 [submodule "zsh/plugins/autosuggestions"]
 	path = zsh/plugins/autosuggestions
 	url = https://github.com/zsh-users/zsh-autosuggestions
-[submodule "zsh/plugins/autosuggestions-abbreviations-strategy"]
-	path = zsh/plugins/autosuggestions-abbreviations-strategy
-	url = https://github.com/olets/zsh-autosuggestions-abbreviations-strategy
 [submodule "zsh/plugins/completions"]
 	path = zsh/plugins/completions
 	url = https://github.com/zsh-users/zsh-completions

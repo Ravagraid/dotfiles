@@ -54,4 +54,5 @@ zf_ln -sfn $SCRIPT_DIR/yazi/theme.toml $XDG_CONFIG_HOME/yazi/theme.toml
 zf_ln -sfn $SCRIPT_DIR/yazi/package.toml $XDG_CONFIG_HOME/yazi/package.toml
 zf_ln -sfn $SCRIPT_DIR/yazi/flavors $XDG_CONFIG_HOME/yazi/flavors
 zf_ln -sfn $SCRIPT_DIR/yazi/plugins $XDG_CONFIG_HOME/yazi/plugins
+zf_ln -sfn $SCRIPT_DIR/tools/git-diff-pager $HOME/.local/bin/git-diff-pager
 print " ...done!"
